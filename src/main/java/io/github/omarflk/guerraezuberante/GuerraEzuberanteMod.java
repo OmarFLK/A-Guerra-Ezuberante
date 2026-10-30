@@ -27,6 +27,7 @@ public final class GuerraEzuberanteMod {
         ModItems.REGISTER.register(bus);
         ModCreativeTabs.REGISTER.register(bus);
         ModSounds.REGISTER.register(bus);
+        io.github.omarflk.guerraezuberante.registry.ModVillagers.TYPES.register(bus);
         io.github.omarflk.guerraezuberante.registry.ModWorldgen.register(bus);
         io.github.omarflk.guerraezuberante.registry.ModEffects.REGISTER.register(bus);
         io.github.omarflk.guerraezuberante.registry.ModParticles.REGISTER.register(bus);
@@ -38,6 +39,9 @@ public final class GuerraEzuberanteMod {
 
     private void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.LULA.get(), io.github.omarflk.guerraezuberante.entity.LulaEntity.createAttributes().build());
+        event.put(ModEntities.HADDAD.get(), io.github.omarflk.guerraezuberante.entity.HaddadEntity.createAttributes().build());
+        event.put(ModEntities.BOULOS.get(), io.github.omarflk.guerraezuberante.entity.BoulosEntity.createAttributes().build());
+        event.put(ModEntities.PETISTA.get(), net.minecraft.world.entity.npc.Villager.createAttributes().build());
         event.put(ModEntities.JAIR_BOLSONARO.get(),io.github.omarflk.guerraezuberante.entity.JairBolsonaroEntity.createAttributes().build());
         event.put(ModEntities.FLAVIO_BOLSONARO.get(),io.github.omarflk.guerraezuberante.entity.FlavioBolsonaroEntity.createAttributes().build());
         event.put(ModEntities.RENAN_SANTOS.get(), RenanSantosEntity.createAttributes().build());

@@ -70,6 +70,7 @@ public final class FactionVillageStructure extends Structure {
     /** The other characters, one each, around the village square. */
     public static List<EntityType<?>> members(Faction faction) {
         return switch (faction) {
+            case LULISTA -> List.of(ModEntities.HADDAD.get(), ModEntities.BOULOS.get());
             case BOLSONARISTA -> List.of(ModEntities.FLAVIO_BOLSONARO.get());
             case MISSAO -> List.of(ModEntities.ARTHUR_INVOCADOR.get());
             default -> List.of();
@@ -143,6 +144,7 @@ public final class FactionVillageStructure extends Structure {
             int offset = index % 2 == 0 ? 3 : -3;
             spawn(level, chunkBox, members.get(index), center.offset(offset, 0, -offset));
         }
+        if (faction == Faction.LULISTA) { Petistas.convertVillagers(level, chunkBox, chunk); }
     }
 
     private static boolean isHouse(StructurePiece piece) {
@@ -198,6 +200,7 @@ public final class FactionVillageStructure extends Structure {
         var entity = type.create(level.getLevel());
         if (entity == null) { return; }
         entity.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, yaw, 0);
+        if (entity instanceof io.github.omarflk.guerraezuberante.entity.LulistaAllyEntity ally) { ally.setHome(pos); }
         if (entity instanceof Mob mob) {
             mob.setPersistenceRequired();
             mob.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.STRUCTURE, null, null);

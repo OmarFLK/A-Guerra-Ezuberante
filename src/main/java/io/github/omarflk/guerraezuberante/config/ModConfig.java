@@ -20,6 +20,10 @@ public final class ModConfig {
     public static final ForgeConfigSpec.IntValue FISSURE_COOLDOWN;
     public static final ForgeConfigSpec.BooleanValue FISSURE_BLOCK_DAMAGE;
     public static final ForgeConfigSpec.DoubleValue FISSURE_FINAL_RADIUS;
+    public static final ForgeConfigSpec.DoubleValue HADDAD_HEALTH,HADDAD_MELEE,SLAP_DAMAGE,HADDAD_DAMAGE_VOICE_CHANCE,HADDAD_LOW_HEALTH_FRACTION,BOULOS_HEALTH,BOULOS_MELEE,BOULOS_ARMOR,BOULOS_PO_CHANCE;
+    public static final ForgeConfigSpec.IntValue SLAP_COUNT,SLAP_PARALYSIS_TICKS,SLAP_COOLDOWN;
+    public static final ForgeConfigSpec.BooleanValue RIVALRY_ENABLED;
+    public static final ForgeConfigSpec.DoubleValue RIVALRY_RANGE;
     public static final ForgeConfigSpec.IntValue BALANCE_REVISION;
     public static final ForgeConfigSpec.BooleanValue FACTION_KIT_ENABLED;
     public static final ForgeConfigSpec.IntValue BEAN_VOLLEY_COOLDOWN,BEAN_VOLLEY_COUNT,PLAYER_FISSURE_COOLDOWN,PLAYER_TROOPS_COOLDOWN,
@@ -29,6 +33,7 @@ public final class ModConfig {
             PLAYER_FISSURE_RANGE,BOLSONARISTA_ARMOR,MISSAO_HEALTH,GROUP_HEAL_RADIUS,DASH_STRENGTH,DIREITA_SPEED;
     public static final ForgeConfigSpec.IntValue MAX_LEVEL,POINTS_PER_LEVEL,STAT_MAX,XP_BASE,XP_PER_LEVEL,XP_HOSTILE,XP_NPC,XP_BOSS,XP_PLAYER,
             CONVICTION_SECOND_POWER,CONVICTION_THIRD_POWER;
+    public static final ForgeConfigSpec.DoubleValue XP_RIVAL_MULTIPLIER,XP_RIVAL_LEADER_MULTIPLIER;
     public static final ForgeConfigSpec.DoubleValue STRENGTH_PER_POINT,SPEED_PER_POINT,HEALTH_PER_POINT,IDEOLOGY_PER_POINT,CONVICTION_PER_POINT;
     public static final ForgeConfigSpec.IntValue STOMP_COOLDOWN,FAZ_O_L_COOLDOWN,FAZ_O_L_ITEMS,ATHLETE_COOLDOWN,ATHLETE_TICKS,GRAVEDIGGER_COOLDOWN,
             METEOR_COOLDOWN,METEOR_COUNT,BOOK_COOLDOWN,BOOK_TICKS,BOOK_INTERVAL,BORED_TICKS,PROTEST_COOLDOWN,PROTEST_COUNT,PROTEST_LIFETIME,
@@ -99,6 +104,31 @@ public final class ModConfig {
         FISSURE_BLOCK_DAMAGE=builder.comment("Narrow surface break only; respects mobGriefing, block hardness and Forge destroy events.")
                 .define("rachadinha_block_damage",true);
         builder.pop();
+        builder.comment("Lulista allies of Lula. They defend the village: hostile mobs and players of other factions nearby.").push("haddad");
+        HADDAD_HEALTH=builder.defineInRange("max_health",30D,1D,1024D);
+        HADDAD_MELEE=builder.defineInRange("melee_damage",3D,0D,100D);
+        SLAP_COUNT=builder.defineInRange("slap_count",3,1,10);
+        SLAP_DAMAGE=builder.comment("Damage of each slap; armor applies.").defineInRange("slap_damage",3D,0D,100D);
+        SLAP_PARALYSIS_TICKS=builder.comment("Paralysis after each slap that really hurts: no walking, no jumping.")
+                .defineInRange("slap_paralysis_ticks",60,0,1200);
+        SLAP_COOLDOWN=builder.comment("From the start of one slap combo to the next.").defineInRange("slap_cooldown_ticks",200,40,72000);
+        HADDAD_DAMAGE_VOICE_CHANCE=builder.comment("Chance of a damage line each time Haddad takes damage (never over another line).")
+                .defineInRange("damage_voice_chance",1D,0D,1D);
+        HADDAD_LOW_HEALTH_FRACTION=builder.comment("Below this fraction of max health the damage line becomes \"perdeu né seu tonto\".")
+                .defineInRange("low_health_voice_fraction",.2D,0D,1D);
+        builder.pop();
+        builder.push("boulos");
+        BOULOS_HEALTH=builder.defineInRange("max_health",60D,1D,1024D);
+        BOULOS_MELEE=builder.defineInRange("melee_damage",5D,0D,100D);
+        BOULOS_ARMOR=builder.defineInRange("armor",6D,0D,30D);
+        BOULOS_PO_CHANCE=builder.comment("Chance of playing \"o pó\" each time Boulos takes damage (never over itself).")
+                .defineInRange("po_chance",.4D,0D,1D);
+        builder.pop();
+        builder.comment("Characters of different factions (Lula, Jair, Renan, Arthur, Haddad...) attack each other on sight;",
+                "characters of the same faction are allies. Players are not affected.").push("faction_rivalry");
+        RIVALRY_ENABLED=builder.define("enabled",true);
+        RIVALRY_RANGE=builder.comment("Blocks within which a character notices a rival it can see.").defineInRange("range",16D,2D,32D);
+        builder.pop();
         builder.comment("Player faction powers (B key), passives and the one-time starting kit.").push("faction_powers");
         FACTION_KIT_ENABLED=builder.comment("Kit is given once per player per world, only on the player's own first choice.")
                 .define("starting_kit_enabled",true);
@@ -140,6 +170,10 @@ public final class ModConfig {
         XP_NPC=builder.defineInRange("xp_mod_character",40,0,100000);
         XP_BOSS=builder.comment("Characters with a boss bar and vanilla bosses.").defineInRange("xp_boss",200,0,100000);
         XP_PLAYER=builder.comment("Only for players of another faction or without one.").defineInRange("xp_enemy_player",60,0,100000);
+        XP_RIVAL_MULTIPLIER=builder.comment("Multiplies the XP of a mod character of another faction than the killer's (Haddad for a Bolsonarista).")
+                .defineInRange("xp_rival_character_multiplier",2D,1D,20D);
+        XP_RIVAL_LEADER_MULTIPLIER=builder.comment("Same, for the leader of another faction (Lula, Jair, Renan). Replaces the multiplier above.")
+                .defineInRange("xp_rival_leader_multiplier",4D,1D,20D);
         STRENGTH_PER_POINT=builder.defineInRange("strength_attack_damage_per_point",.5D,0D,10D);
         SPEED_PER_POINT=builder.comment("Fraction of base movement speed per point.").defineInRange("speed_bonus_per_point",.02D,0D,.5D);
         HEALTH_PER_POINT=builder.defineInRange("health_bonus_per_point",1D,0D,20D);
