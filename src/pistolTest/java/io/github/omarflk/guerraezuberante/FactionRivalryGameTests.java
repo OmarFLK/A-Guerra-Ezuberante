@@ -35,8 +35,12 @@ public final class FactionRivalryGameTests {
     @BeforeBatch(batch = "ge_rivalidade") public static void enable(ServerLevel level) { ModConfig.RIVALRY_ENABLED.set(true); }
     @AfterBatch(batch = "ge_rivalidade") public static void disable(ServerLevel level) { ModConfig.RIVALRY_ENABLED.set(false); }
 
+    /**
+     * Isolated far above the caves: lower down, with more test batches, terrain, liquids, falling blocks and hostile mobs
+     * could interfere with line of sight or make village allies target something outside the rivalry fixture.
+     */
     private static Vec3 arena(GameTestHelper h) {
-        var p = h.absolutePos(new BlockPos(3, 40, 3));
+        var p = h.absolutePos(new BlockPos(3, 210, 3));
         // Keep the fixture independent from caves, water and falling blocks in the generated world. Rivalry tests run
         // in a different batch order without TaCZ, so a merely cleared four-block-high pocket can be filled again by
         // gravel/sand or cave liquids before the target selector performs its line-of-sight check.
@@ -47,6 +51,8 @@ public final class FactionRivalryGameTests {
             for (int y = 0; y < 6; y++) h.getLevel().setBlockAndUpdate(p.offset(x, y, z),
                     wall ? Blocks.STONE.defaultBlockState() : Blocks.AIR.defaultBlockState());
         }
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.monster.Monster.class, new net.minecraft.world.phys.AABB(p).inflate(20))
+                .forEach(Entity::discard);
         return Vec3.atBottomCenterOf(p);
     }
 
