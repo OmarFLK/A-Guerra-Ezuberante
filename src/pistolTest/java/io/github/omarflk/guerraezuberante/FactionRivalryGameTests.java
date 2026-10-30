@@ -37,9 +37,15 @@ public final class FactionRivalryGameTests {
 
     private static Vec3 arena(GameTestHelper h) {
         var p = h.absolutePos(new BlockPos(3, 40, 3));
-        for (int x = -7; x <= 7; x++) for (int z = -10; z <= 12; z++) {
+        // Keep the fixture independent from caves, water and falling blocks in the generated world. Rivalry tests run
+        // in a different batch order without TaCZ, so a merely cleared four-block-high pocket can be filled again by
+        // gravel/sand or cave liquids before the target selector performs its line-of-sight check.
+        for (int x = -9; x <= 9; x++) for (int z = -12; z <= 14; z++) {
             h.getLevel().setBlockAndUpdate(p.offset(x, -1, z), Blocks.STONE.defaultBlockState());
-            for (int y = 0; y < 4; y++) h.getLevel().setBlockAndUpdate(p.offset(x, y, z), Blocks.AIR.defaultBlockState());
+            h.getLevel().setBlockAndUpdate(p.offset(x, 6, z), Blocks.STONE.defaultBlockState());
+            boolean wall = x == -9 || x == 9 || z == -12 || z == 14;
+            for (int y = 0; y < 6; y++) h.getLevel().setBlockAndUpdate(p.offset(x, y, z),
+                    wall ? Blocks.STONE.defaultBlockState() : Blocks.AIR.defaultBlockState());
         }
         return Vec3.atBottomCenterOf(p);
     }
