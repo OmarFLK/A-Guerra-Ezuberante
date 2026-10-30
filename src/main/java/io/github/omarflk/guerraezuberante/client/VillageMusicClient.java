@@ -62,7 +62,8 @@ public final class VillageMusicClient {
     @SubscribeEvent
     public static void vanillaMusic(PlaySoundEvent event) {
         SoundInstance sound = event.getOriginalSound();
-        if (playing != null && sound != playing && sound.getSource() == SoundSource.MUSIC) {
+        if (playing != null && sound != null && sound != playing && sound.getSource() == SoundSource.MUSIC
+                && "minecraft".equals(sound.getLocation().getNamespace())) {
             event.setSound(null);
         }
     }

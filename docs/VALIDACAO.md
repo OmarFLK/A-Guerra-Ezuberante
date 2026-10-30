@@ -1,4 +1,11 @@
-# Validação — 0.014.2
+# Validação — 0.014.3
+
+- **130 GameTests com TaCZ e 66 sem TaCZ aprovados.** As quatro regressões novas cobrem detecção por estrutura real, margem de saída, ausência de faixa em outras facções, morte/espectador/dimensão, independência entre jogadores e logout.
+- **Build/check/reobf aprovados**, incluindo validadores de assets, GeckoLib, TaCZ, personagens e menu.
+- A música da vila da Missão usa loop nativo, categoria Música e pacote S2C `VillageMusic` no protocolo 4. Durante a faixa, somente a música vanilla é interrompida; músicas de outros mods permanecem intactas.
+[Comportamento, instalação, rede e limites da música da vila](MUSICA_VILA_0.014.3.md). A sessão de cliente normal deve ser iniciada silenciosa após a integração; testes automatizados não avaliam qualidade sonora percebida.
+
+## Histórico — 0.014.2
 
 - **126 GameTests com TaCZ e62 sem TaCZ aprovados.** Áudio sem autoplay, clique para pular, parada na morte, comandos/permissões de vila e construção das seis facções. Logs `.tools/audio-village-0142-tests-final.log` e `.tools/audio-village-0142-no-tacz.log`.
 - **16 sementes:**18posições em terra em cada uma e separação mínima176blocos. Semente-42 reproduziu dois pontos oceânicos na versão anterior, corrigidos por busca adicional.

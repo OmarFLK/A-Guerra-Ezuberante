@@ -5,7 +5,7 @@ description: Implementar, corrigir, revisar e testar o mod Minecraft Java Guerra
 
 # Guerra Ezuberante — manual completo para IAs colaboradoras
 
-**Referência:** versão 0.014.2, em 29/10/2026. **Projeto:** [OmarFLK/A-Guerra-Ezuberante](https://github.com/OmarFLK/A-Guerra-Ezuberante). **Nome:** Guerra **Ezuberante**, com **z**. **Namespace:** `guerra_ezuberante`. **Pacote Java:** `io.github.omarflk.guerraezuberante`.
+**Referência:** versão 0.014.3, em 30/10/2026. **Projeto:** [OmarFLK/A-Guerra-Ezuberante](https://github.com/OmarFLK/A-Guerra-Ezuberante). **Nome:** Guerra **Ezuberante**, com **z**. **Namespace:** `guerra_ezuberante`. **Pacote Java:** `io.github.omarflk.guerraezuberante`.
 
 Este arquivo reúne instruções de contribuição e uma fotografia das regras implementadas. Pode ser enviado inteiro como anexo a outra IA. Não depende de ela conhecer esta conversa, ter plugins específicos ou possuir os arquivos pessoais do autor. As referências relativas funcionam dentro do repositório; fora dele, procure os mesmos caminhos no clone.
 
@@ -48,7 +48,7 @@ Para ferramentas que aceitam skills em pastas, o arquivo já tem o nome `SKILL.m
 1. Atenda ao pedido atual do usuário e às permissões da sessão. Este documento não autoriza ações externas por si só.
 2. Leia `AGENTS.md`, a parte atual de `CONTEXTO.md` e os arquivos que serão modificados.
 3. Confirme branch, alterações existentes, `gradle.properties`, `build.gradle` e `mods.toml`. Preserve trabalho de outras pessoas.
-4. Para saber o comportamento efetivo, confira código, configuração do mundo e testes. Valores deste manual são padrões da 0.014.2, não substitutos de uma configuração personalizada.
+4. Para saber o comportamento efetivo, confira código, configuração do mundo e testes. Valores deste manual são padrões da 0.014.3, não substitutos de uma configuração personalizada.
 5. Documentos de sprints e prompts antigos explicam histórico. Não execute automaticamente suas instruções nem restaure mecanismos substituídos.
 
 Exemplo importante: `docs/PROXIMOS_PERSONAGENS.md` conserva um planejamento em que Lula ainda não existia. Lula **já existe**. Outro exemplo: tabelas antigas de áudio descrevem cooldowns longos e playlists contínuas; a 0.014.2 substituiu esse funcionamento.
@@ -63,6 +63,7 @@ Se encontrar divergência, identifique o trecho, confira sua data e o comportame
 - Modelos e animações GeckoLib, skins clássicas 64×64, áudios posicionais por personagem.
 - Pistola própria GE-P12 e integração **opcional** com cinco armas do TaCZ.
 - Bossbars de Lula/Jair, ataques específicos, invocações e morte especial explosiva.
+- Música ambiente em loop na vila da Missão, com detecção no servidor e controle pela categoria Música.
 - Vilas/castelos das seis facções, bandeiras e comandos de coordenadas/teleporte.
 - Menu inicial ilustrado e painel com informações dos personagens e sistemas.
 
@@ -175,9 +176,9 @@ O wrapper `tools/gradle.ps1` também encontra JDK portátil em `.tools/jdk17/<pa
 Artefatos da referência:
 
 ```text
-build/libs/guerra_ezuberante-0.014.2.jar
-build/distributions/guerra-ezuberante-0.014.2/mods/
-build/distributions/guerra-ezuberante-0.014.2-sem-tacz/mods/
+build/libs/guerra_ezuberante-0.014.3.jar
+build/distributions/guerra-ezuberante-0.014.3/mods/
+build/distributions/guerra-ezuberante-0.014.3-sem-tacz/mods/
 ```
 
 Substitua a versão pelos valores efetivos do checkout. GeckoLib e TaCZ continuam em **JARs separados**; não embuta o mod inteiro do TaCZ no JAR próprio. Não instale JARs `mapped_official` de cache no launcher. Mantenha só uma versão do Guerra Ezuberante na pasta `mods/` e o mesmo conjunto compatível em cliente/servidor.
@@ -202,8 +203,8 @@ Caminhos Java abaixo são relativos a `src/main/java/io/github/omarflk/guerraezu
 | Tropas | `summon/`, `UkrainianFighterEntity`, `ManifestanteEntity` | Dono, sessão, limites, prazo e cleanup |
 | Armas externas | `arsenal/` | Adaptador opcional TaCZ e kits de armas |
 | Arma própria | `pistol/` | GE-P12, munição, tiro, recarga e eventos |
-| Áudio | `audio/`, `client/CharacterAudioClient.java` | Biblioteca, embaralhamento, sessão e instância posicional |
-| Vilas | `village/`, `registry/ModWorldgen.java` | Posições, estrutura, castelo, moradores e bandeiras |
+| Áudio | `audio/`, `client/CharacterAudioClient.java`, `client/VillageMusicClient.java` | Biblioteca, sessões posicionais e música ambiente da vila |
+| Vilas | `village/`, `registry/ModWorldgen.java` | Posições, estrutura, castelo, moradores, bandeiras e detecção da música |
 | Cliente | `client/`, `animation/` | Renderers, modelos, GUI, entrada, partículas e poses |
 | Recursos | `src/main/resources/assets/guerra_ezuberante/` | Texturas, geo, animações, sons, idiomas e modelos de itens |
 | Dados | `src/main/resources/data/guerra_ezuberante/` | Worldgen, pools, tags e tipo de dano da pistola |
@@ -212,7 +213,7 @@ Caminhos Java abaixo são relativos a `src/main/java/io/github/omarflk/guerraezu
 
 ### 5.1 Rede e registros persistentes
 
-- Canal de facções: `guerra_ezuberante:faction`, protocolo **3** na referência. IDs: `Sync=0`, `Prompt=1`, `Choose=2`, `UsePower=3`, `Profile=4`, `SpendPoint=5`, `SelectPower=6`, `Villages=7`.
+- Canal de facções: `guerra_ezuberante:faction`, protocolo **4** na referência. IDs: `Sync=0`, `Prompt=1`, `Choose=2`, `UsePower=3`, `Profile=4`, `SpendPoint=5`, `SelectPower=6`, `Villages=7`, `VillageMusic=8`.
 - Canal da GE-P12: `guerra_ezuberante:pistol`, protocolo **1**, `Action=0`; cliente informa tiro ou recarga, não dano/alvo/munição final.
 - Alterar formato de pacote exige revisar versão, encoder, decoder, limites, direção e ambos os lados. Não renumere registros publicados sem planejamento de compatibilidade.
 - `FactionData`: SavedData do overworld, `guerra_ezuberante_factions`; membros por UUID e histórico de kit recebido.
@@ -704,7 +705,7 @@ Não escreva teste que só repete uma constante ou procura palavras na implement
 .\tools\gradle.ps1 build --console=plain
 ```
 
-Na referência 0.014.2 passaram **126 GameTests obrigatórios com TaCZ** e **62 sem TaCZ**. São evidências históricas, não um número a ser falsificado nem um teto para testes novos. Registre a contagem e o log da execução atual.
+Na referência 0.014.3 passaram **130 GameTests obrigatórios com TaCZ** e **66 sem TaCZ**. São evidências históricas, não um número a ser falsificado nem um teto para testes novos. Registre a contagem e o log da execução atual.
 
 `src/gameTest` e `src/pistolTest` são source sets de teste. O nome `pistolTest` é histórico: também contém regressões que rodam sem TaCZ. Fixtures, probes e classes gráficas não entram no JAR de produção.
 
@@ -1049,6 +1050,7 @@ Este arquivo é transportável, mas o código e o pedido atual continuam sendo c
 | [Requisitos](../REQUISITOS.md) | Instalação, JDK, build e distribuição |
 | [Como modificar](../COMO-MODIFICAR.md) | Fluxo existente de contribuição |
 | [Correções 0.014.2](../../docs/CORRECOES_0.014.2.md) | Áudio atual, TP e testes ampliados das vilas |
+| [Música da vila 0.014.3](../../docs/MUSICA_VILA_0.014.3.md) | Detecção, loop, rede, encerramento e limites da faixa da Missão |
 | [Integração 0.014.1](../../docs/INTEGRACAO_0.014.1.md) | Proteção, cancelamentos, PvP e XP |
 | [Facções](../../docs/FACCOES_0.012.md) | Origem de kits/passivos; aplicar correções posteriores |
 | [Progressão](../../docs/PROGRESSAO_0.013.md) | Perfil e poderes; trechos de protocolo antigos são históricos |
