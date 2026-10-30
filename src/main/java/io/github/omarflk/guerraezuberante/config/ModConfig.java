@@ -12,7 +12,9 @@ public final class ModConfig {
     public static final ForgeConfigSpec.IntValue CHARACTER_AUDIO_SESSION, CHARACTER_AUDIO_GRACE;
     public static final ForgeConfigSpec.DoubleValue LULA_HEALTH, LULA_EXPLOSION_POWER, LULA_RISE;
     public static final ForgeConfigSpec.BooleanValue LULA_EXPLOSION_ENABLED, LULA_BLOCK_DAMAGE;
-    public static final ForgeConfigSpec.IntValue LULA_DEATH_TICKS;
+    public static final ForgeConfigSpec.IntValue LULA_DEATH_TICKS,LULA_FAZ_O_L_HITS,LULA_PROTEST_HITS;
+    public static final ForgeConfigSpec.DoubleValue LULA_FAZ_O_L_CHANCE,LULA_PROTEST_CHANCE;
+    public static final ForgeConfigSpec.BooleanValue LULA_FAZ_O_L_BREAK_BLOCKS;
     public static final ForgeConfigSpec.DoubleValue JAIR_HEALTH,JAIR_SPEED,JAIR_MELEE,JAIR_EXPLOSION_POWER,JAIR_RISE,JAIR_CANALHA_CHANCE;
     public static final ForgeConfigSpec.IntValue JAIR_DEATH_TICKS,JAIR_SUMMON_COUNT,JAIR_SUMMON_COOLDOWN,JAIR_MAX_SUMMONS;
     public static final ForgeConfigSpec.BooleanValue JAIR_EXPLOSION_ENABLED,JAIR_BLOCK_DAMAGE,JAIR_SUMMON_ENABLED;
@@ -20,6 +22,12 @@ public final class ModConfig {
     public static final ForgeConfigSpec.IntValue FISSURE_COOLDOWN;
     public static final ForgeConfigSpec.BooleanValue FISSURE_BLOCK_DAMAGE;
     public static final ForgeConfigSpec.DoubleValue FISSURE_FINAL_RADIUS;
+    public static final ForgeConfigSpec.DoubleValue HADDAD_HEALTH,HADDAD_MELEE,SLAP_DAMAGE,HADDAD_DAMAGE_VOICE_CHANCE,HADDAD_LOW_HEALTH_FRACTION,BOULOS_HEALTH,BOULOS_MELEE,BOULOS_ARMOR,BOULOS_PO_CHANCE;
+    public static final ForgeConfigSpec.IntValue SLAP_COUNT,SLAP_PARALYSIS_TICKS,SLAP_COOLDOWN;
+    public static final ForgeConfigSpec.BooleanValue RIVALRY_ENABLED;
+    public static final ForgeConfigSpec.DoubleValue DILMA_HEALTH,MANDIOCA_DAMAGE,WIND_RANGE,WIND_PUSH,SEM_AR_DAMAGE,LINK_RANGE,LINK_HEAL,LINK_MULTIPLIER;
+    public static final ForgeConfigSpec.IntValue MANDIOCA_COUNT,MANDIOCA_INTERVAL,WIND_COOLDOWN,WIND_BREATHLESS_TICKS;
+    public static final ForgeConfigSpec.DoubleValue RIVALRY_RANGE;
     public static final ForgeConfigSpec.IntValue BALANCE_REVISION;
     public static final ForgeConfigSpec.BooleanValue FACTION_KIT_ENABLED;
     public static final ForgeConfigSpec.IntValue BEAN_VOLLEY_COOLDOWN,BEAN_VOLLEY_COUNT,PLAYER_FISSURE_COOLDOWN,PLAYER_TROOPS_COOLDOWN,
@@ -29,6 +37,7 @@ public final class ModConfig {
             PLAYER_FISSURE_RANGE,BOLSONARISTA_ARMOR,MISSAO_HEALTH,GROUP_HEAL_RADIUS,DASH_STRENGTH,DIREITA_SPEED;
     public static final ForgeConfigSpec.IntValue MAX_LEVEL,POINTS_PER_LEVEL,STAT_MAX,XP_BASE,XP_PER_LEVEL,XP_HOSTILE,XP_NPC,XP_BOSS,XP_PLAYER,
             CONVICTION_SECOND_POWER,CONVICTION_THIRD_POWER;
+    public static final ForgeConfigSpec.DoubleValue XP_RIVAL_MULTIPLIER,XP_RIVAL_LEADER_MULTIPLIER;
     public static final ForgeConfigSpec.DoubleValue STRENGTH_PER_POINT,SPEED_PER_POINT,HEALTH_PER_POINT,IDEOLOGY_PER_POINT,CONVICTION_PER_POINT;
     public static final ForgeConfigSpec.IntValue STOMP_COOLDOWN,FAZ_O_L_COOLDOWN,FAZ_O_L_ITEMS,ATHLETE_COOLDOWN,ATHLETE_TICKS,GRAVEDIGGER_COOLDOWN,
             METEOR_COOLDOWN,METEOR_COUNT,BOOK_COOLDOWN,BOOK_TICKS,BOOK_INTERVAL,BORED_TICKS,PROTEST_COOLDOWN,PROTEST_COUNT,PROTEST_LIFETIME,
@@ -70,6 +79,15 @@ public final class ModConfig {
         LULA_RISE = builder.defineInRange("death_rise_blocks", 2D, 0D, 8D);
         LULA_BLOCK_DAMAGE = builder.comment("Also respects mobGriefing and Forge explosion protection events.")
                 .define("death_explosion_block_damage", true);
+        LULA_FAZ_O_L_HITS = builder.comment("Every this many hits Lula takes, he may throw a Faz o L at the attacker.",
+                "Damage and radius are the player power's: [faction_powers] lulista_faz_o_l_damage/radius.").defineInRange("faz_o_l_every_hits", 10, 1, 100);
+        LULA_FAZ_O_L_CHANCE = builder.defineInRange("faz_o_l_chance", .5D, 0D, 1D);
+        LULA_FAZ_O_L_BREAK_BLOCKS = builder.comment("The blast breaks blocks like Lula's death explosion, his castle included. Also respects mobGriefing.")
+                .define("faz_o_l_breaks_blocks", true);
+        LULA_PROTEST_HITS = builder.comment("Every this many hits Lula takes, he may call a Manifestacao (Manifestantes on his side).",
+                "Count and lifetime are the Esquerda power's: [faction_powers] esquerda_manifestando_zombies/lifetime_ticks.")
+                .defineInRange("manifestacao_every_hits", 7, 1, 100);
+        LULA_PROTEST_CHANCE = builder.defineInRange("manifestacao_chance", .3D, 0D, 1D);
         builder.pop();
         builder.push("jair");
         JAIR_HEALTH=builder.defineInRange("max_health",300D,1D,1024D);
@@ -98,6 +116,48 @@ public final class ModConfig {
         FISSURE_FINAL_RADIUS=builder.defineInRange("rachadinha_final_radius",2.25D,.65D,5D);
         FISSURE_BLOCK_DAMAGE=builder.comment("Narrow surface break only; respects mobGriefing, block hardness and Forge destroy events.")
                 .define("rachadinha_block_damage",true);
+        builder.pop();
+        builder.comment("Lulista allies of Lula. They defend the village: hostile mobs and players of other factions nearby.").push("haddad");
+        HADDAD_HEALTH=builder.defineInRange("max_health",30D,1D,1024D);
+        HADDAD_MELEE=builder.defineInRange("melee_damage",3D,0D,100D);
+        SLAP_COUNT=builder.defineInRange("slap_count",3,1,10);
+        SLAP_DAMAGE=builder.comment("Damage of each slap; armor applies.").defineInRange("slap_damage",3D,0D,100D);
+        SLAP_PARALYSIS_TICKS=builder.comment("Paralysis after each slap that really hurts: no walking, no jumping.")
+                .defineInRange("slap_paralysis_ticks",60,0,1200);
+        SLAP_COOLDOWN=builder.comment("From the start of one slap combo to the next.").defineInRange("slap_cooldown_ticks",200,40,72000);
+        HADDAD_DAMAGE_VOICE_CHANCE=builder.comment("Chance of a damage line each time Haddad takes damage (never over another line).")
+                .defineInRange("damage_voice_chance",1D,0D,1D);
+        HADDAD_LOW_HEALTH_FRACTION=builder.comment("Below this fraction of max health the damage line becomes \"perdeu né seu tonto\".")
+                .defineInRange("low_health_voice_fraction",.2D,0D,1D);
+        builder.pop();
+        builder.push("boulos");
+        BOULOS_HEALTH=builder.defineInRange("max_health",60D,1D,1024D);
+        BOULOS_MELEE=builder.defineInRange("melee_damage",5D,0D,100D);
+        BOULOS_ARMOR=builder.defineInRange("armor",6D,0D,30D);
+        BOULOS_PO_CHANCE=builder.comment("Chance of playing \"o pó\" each time Boulos takes damage (never over itself).")
+                .defineInRange("po_chance",.4D,0D,1D);
+        builder.pop();
+        builder.comment("Dilma, Lulista ally who fights from a distance: mandioca bursts and Estocar vento.").push("dilma");
+        DILMA_HEALTH=builder.defineInRange("max_health",40D,1D,1024D);
+        MANDIOCA_COUNT=builder.comment("Mandiocas in each burst, fanned 8 degrees apart.").defineInRange("mandioca_count",3,1,9);
+        MANDIOCA_DAMAGE=builder.comment("Damage of each mandioca.").defineInRange("mandioca_damage",3D,0D,100D);
+        MANDIOCA_INTERVAL=builder.defineInRange("mandioca_interval_ticks",60,10,72000);
+        WIND_COOLDOWN=builder.comment("Estocar vento: 2 s with the arms turning, then either a push or Sem ar (drawn each use).")
+                .defineInRange("estocar_vento_cooldown_ticks",300,40,72000);
+        WIND_RANGE=builder.defineInRange("estocar_vento_range",12D,2D,32D);
+        WIND_PUSH=builder.comment("Horizontal push strength; knockback resistance reduces it.").defineInRange("estocar_vento_push",1.6D,0D,5D);
+        WIND_BREATHLESS_TICKS=builder.defineInRange("estocar_vento_sem_ar_ticks",100,20,1200);
+        SEM_AR_DAMAGE=builder.comment("Drowning damage per second while the air bar is empty under Sem ar.").defineInRange("sem_ar_damage_per_second",2D,0D,100D);
+        LINK_RANGE=builder.comment("Red beam between Dilma and Lula, like the End crystal's: both alive, this close and in sight of each other.")
+                .defineInRange("lula_link_range",12D,2D,32D);
+        LINK_HEAL=builder.comment("Health Lula gets back per second while the beam is on.").defineInRange("lula_link_heal_per_second",4D,0D,100D);
+        LINK_MULTIPLIER=builder.comment("While the beam is on: mandioca damage, push strength and Sem ar damage are multiplied by this.")
+                .defineInRange("lula_link_attack_multiplier",2D,1D,10D);
+        builder.pop();
+        builder.comment("Characters of different factions (Lula, Jair, Renan, Arthur, Haddad...) attack each other on sight;",
+                "characters of the same faction are allies. Players are not affected.").push("faction_rivalry");
+        RIVALRY_ENABLED=builder.define("enabled",true);
+        RIVALRY_RANGE=builder.comment("Blocks within which a character notices a rival it can see.").defineInRange("range",16D,2D,32D);
         builder.pop();
         builder.comment("Player faction powers (B key), passives and the one-time starting kit.").push("faction_powers");
         FACTION_KIT_ENABLED=builder.comment("Kit is given once per player per world, only on the player's own first choice.")
@@ -140,6 +200,10 @@ public final class ModConfig {
         XP_NPC=builder.defineInRange("xp_mod_character",40,0,100000);
         XP_BOSS=builder.comment("Characters with a boss bar and vanilla bosses.").defineInRange("xp_boss",200,0,100000);
         XP_PLAYER=builder.comment("Only for players of another faction or without one.").defineInRange("xp_enemy_player",60,0,100000);
+        XP_RIVAL_MULTIPLIER=builder.comment("Multiplies the XP of a mod character of another faction than the killer's (Haddad for a Bolsonarista).")
+                .defineInRange("xp_rival_character_multiplier",2D,1D,20D);
+        XP_RIVAL_LEADER_MULTIPLIER=builder.comment("Same, for the leader of another faction (Lula, Jair, Renan). Replaces the multiplier above.")
+                .defineInRange("xp_rival_leader_multiplier",4D,1D,20D);
         STRENGTH_PER_POINT=builder.defineInRange("strength_attack_damage_per_point",.5D,0D,10D);
         SPEED_PER_POINT=builder.comment("Fraction of base movement speed per point.").defineInRange("speed_bonus_per_point",.02D,0D,.5D);
         HEALTH_PER_POINT=builder.defineInRange("health_bonus_per_point",1D,0D,20D);
