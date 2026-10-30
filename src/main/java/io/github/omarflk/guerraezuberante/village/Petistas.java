@@ -4,6 +4,8 @@ import io.github.omarflk.guerraezuberante.GuerraEzuberanteMod;
 import io.github.omarflk.guerraezuberante.registry.ModVillagers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.TickTask;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.ChunkPos;
@@ -26,7 +28,8 @@ public final class Petistas {
      * entity data of the chunk being generated, so only their villager type is changed; when a structure is placed
      * into a loaded world (/place, GameTests) they are already real entities.
      */
-    static void convertVillagers(WorldGenLevel level, BoundingBox chunkBox, ChunkPos chunk, VillagerType villagerType) {
+    static void convertVillagers(WorldGenLevel level, BoundingBox chunkBox, ChunkPos chunk,
+                                 BoundingBox villageBox, VillagerType villagerType) {
         String type = BuiltInRegistries.VILLAGER_TYPE.getKey(villagerType).toString();
         if (level.getChunk(chunk.x, chunk.z) instanceof ProtoChunk proto) {
             for (CompoundTag entity : proto.getEntities()) {
@@ -37,9 +40,16 @@ public final class Petistas {
                 }
             }
         }
-        if (level instanceof net.minecraft.server.level.ServerLevel) {
-            level.getEntitiesOfClass(Villager.class, AABB.of(chunkBox))
+        if (level instanceof ServerLevel serverLevel) {
+            // A jigsaw piece processed for a later chunk can create a villager whose position belongs to a chunk
+            // already visited by afterPlace. Re-scan the complete village on every pass so the final pass always
+            // catches those cross-chunk entities too; limiting this to chunkBox made conversion order-dependent.
+            Runnable reconcile = () -> serverLevel.getEntitiesOfClass(Villager.class, AABB.of(villageBox).inflate(2.0))
                     .forEach(villager -> villager.setVillagerData(villager.getVillagerData().setType(villagerType)));
+            reconcile.run();
+            // Entity NBT from a structure can join the loaded level only after afterPlace returns. Queue one final
+            // reconciliation for the following server tick so /place and other loaded-world placements are stable.
+            serverLevel.getServer().tell(new TickTask(serverLevel.getServer().getTickCount() + 1, reconcile));
         }
     }
 

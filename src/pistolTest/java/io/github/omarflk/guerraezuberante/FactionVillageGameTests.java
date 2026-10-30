@@ -225,6 +225,11 @@ public final class FactionVillageGameTests {
     @GameTest(template="empty", batch="ge_vilas", timeoutTicks=400)
     public static void lulistaVillageHasLulaAndWhiteStarFlags(GameTestHelper h) {
         StructureStart start=generate(h, Faction.LULISTA, new ChunkPos(325,250));
+        var villageBox=start.getBoundingBox();
+        var villageChunks=ChunkPos.rangeClosed(
+                new ChunkPos(SectionPos.blockToSectionCoord(villageBox.minX()), SectionPos.blockToSectionCoord(villageBox.minZ())),
+                new ChunkPos(SectionPos.blockToSectionCoord(villageBox.maxX()), SectionPos.blockToSectionCoord(villageBox.maxZ()))).toList();
+        villageChunks.forEach(each -> h.getLevel().setChunkForced(each.x, each.z, true));
         try {
             var castle=castle(h,start);
             var leaders=h.getLevel().getEntitiesOfClass(io.github.omarflk.guerraezuberante.entity.LulaEntity.class, area(start.getBoundingBox()));
@@ -234,19 +239,30 @@ public final class FactionVillageGameTests {
             var boulos=h.getLevel().getEntitiesOfClass(io.github.omarflk.guerraezuberante.entity.BoulosEntity.class, area(start.getBoundingBox()));
             var dilma=h.getLevel().getEntitiesOfClass(io.github.omarflk.guerraezuberante.entity.DilmaEntity.class, area(start.getBoundingBox()));
             h.assertTrue(haddad.size()==1 && boulos.size()==1 && dilma.size()==1, haddad.size()+" Haddad, "+boulos.size()+" Boulos, "+dilma.size()+" Dilma");
-            var villagers=h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class, area(start.getBoundingBox()));
-            var petistas=villagers.stream().filter(io.github.omarflk.guerraezuberante.registry.ModVillagers::isPetista).toList();
-            h.assertTrue(!villagers.isEmpty() && petistas.size()==villagers.size(), petistas.size()+" petistas among "+villagers.size()+" villagers");
-            h.assertTrue(villagers.stream().allMatch(v -> v.getType()==net.minecraft.world.entity.EntityType.VILLAGER), "Petista is not a real villager");
             h.assertTrue(haddad.get(0).home()!=null && boulos.get(0).home()!=null && dilma.get(0).home()!=null, "Allies without a home");
             var post=dilma.get(0).castle();
             h.assertTrue(post!=null && castle.getBoundingBox().isInside(post.center()) && !post.hall().isInside(dilma.get(0).blockPosition()),
                     "Dilma has no castle post or starts inside the hall");
             h.assertTrue(h.getLevel().getBlockState(post.leftDoor()).is(net.minecraft.world.level.block.Blocks.IRON_DOOR)
                     && h.getLevel().getBlockState(post.rightDoor()).is(net.minecraft.world.level.block.Blocks.IRON_DOOR), "Castle gate is not where Dilma thinks");
-            System.out.println("LULISTA_VILLAGE petistas="+petistas.size());
-        } finally { cleanUp(h,start); }
-        h.succeed();
+            h.runAfterDelay(2, () -> {
+                try {
+                    var villagers=h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class, area(start.getBoundingBox()));
+                    var petistas=villagers.stream().filter(io.github.omarflk.guerraezuberante.registry.ModVillagers::isPetista).toList();
+                    h.assertTrue(!villagers.isEmpty() && petistas.size()==villagers.size(), petistas.size()+" petistas among "+villagers.size()+" villagers");
+                    h.assertTrue(villagers.stream().allMatch(v -> v.getType()==net.minecraft.world.entity.EntityType.VILLAGER), "Petista is not a real villager");
+                    System.out.println("LULISTA_VILLAGE petistas="+petistas.size());
+                } finally {
+                    cleanUp(h,start);
+                    villageChunks.forEach(each -> h.getLevel().setChunkForced(each.x, each.z, false));
+                }
+                h.succeed();
+            });
+        } catch (RuntimeException | Error failure) {
+            cleanUp(h,start);
+            villageChunks.forEach(each -> h.getLevel().setChunkForced(each.x, each.z, false));
+            throw failure;
+        }
     }
 
     @GameTest(template="empty", batch="ge_vilas", timeoutTicks=400)

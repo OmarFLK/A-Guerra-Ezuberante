@@ -156,7 +156,9 @@ public final class FactionVillageStructure extends Structure {
             spawn(level, chunkBox, type, center.offset(x, 0, z));
         }
         var villagerType = io.github.omarflk.guerraezuberante.registry.ModVillagers.type(faction);
-        if (villagerType != null) { Petistas.convertVillagers(level, chunkBox, chunk, villagerType); }
+        if (villagerType != null) {
+            Petistas.convertVillagers(level, chunkBox, chunk, pieces.calculateBoundingBox(), villagerType);
+        }
     }
 
     private static boolean isHouse(StructurePiece piece) {
