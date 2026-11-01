@@ -56,6 +56,42 @@ $swordSource = Join-Path $projectRoot 'assets-entrada\texturas\espada_bandeira_u
 if ((Get-FileHash -LiteralPath $swordSource).Hash -ne (Get-FileHash -LiteralPath $swordPath).Hash) {
     throw 'A textura da espada deve preservar o sprite original.'
 }
+$paintingTag = Get-Content -LiteralPath (Join-Path $projectRoot 'src\main\resources\data\minecraft\tags\painting_variant\placeable.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$paintingSpecs = @(
+    @{ Prefix = '01'; Id = 'feliz_datas'; Width = 512; Height = 256 },
+    @{ Prefix = '02'; Id = 'happy_nation'; Width = 512; Height = 256 },
+    @{ Prefix = '03'; Id = 'me_respeita'; Width = 512; Height = 512 },
+    @{ Prefix = '04'; Id = 'pergunta'; Width = 256; Height = 256 },
+    @{ Prefix = '05'; Id = 'rachadinha_tres_porcento'; Width = 256; Height = 256 },
+    @{ Prefix = '06'; Id = 'sacos_lula_flavio'; Width = 512; Height = 512 },
+    @{ Prefix = '07'; Id = 'mestre_dos_bagos'; Width = 256; Height = 384 },
+    @{ Prefix = '08'; Id = 'bolsonaro_joinha'; Width = 256; Height = 256 },
+    @{ Prefix = '09'; Id = 'um_pau'; Width = 512; Height = 256 },
+    @{ Prefix = '10'; Id = 'tweet_autodeclaracao'; Width = 512; Height = 384 }
+)
+foreach ($painting in $paintingSpecs) {
+    $sources = @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'assets-entrada\quadros') -File | Where-Object {
+        $_.BaseName.StartsWith($painting.Prefix) -and $_.Extension.ToLowerInvariant() -in @('.png', '.jpg', '.jpeg')
+    })
+    if ($sources.Count -ne 1) { throw "Imagem-fonte ausente ou duplicada para o quadro $($painting.Id)." }
+    $texture = Join-Path $assets ('textures\painting\' + $painting.Id + '.png')
+    $bytes = [IO.File]::ReadAllBytes($texture)
+    if ($bytes.Length -lt 24 -or [BitConverter]::ToString($bytes, 0, 8) -ne '89-50-4E-47-0D-0A-1A-0A') {
+        throw "PNG de quadro inválido: $texture"
+    }
+    $widthBytes = [byte[]]$bytes[16..19]; [Array]::Reverse($widthBytes)
+    $heightBytes = [byte[]]$bytes[20..23]; [Array]::Reverse($heightBytes)
+    if ([BitConverter]::ToInt32($widthBytes, 0) -ne $painting.Width -or
+        [BitConverter]::ToInt32($heightBytes, 0) -ne $painting.Height) {
+        throw "Dimensão incorreta para o quadro $($painting.Id)."
+    }
+    if ($paintingTag.values -notcontains ('guerra_ezuberante:' + $painting.Id)) {
+        throw "Quadro fora da tag placeable: $($painting.Id)"
+    }
+}
+if (@($paintingTag.values | Where-Object { $_ -like 'guerra_ezuberante:*' }).Count -ne 10) {
+    throw 'A tag placeable deve conter exatamente os dez quadros do mod.'
+}
 $sounds = Get-Content -LiteralPath (Join-Path $assets 'sounds.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 foreach ($event in $sounds.PSObject.Properties) {
     if (-not $pt.PSObject.Properties[$event.Value.subtitle]) { throw "Legenda ausente: $($event.Value.subtitle)" }
@@ -72,4 +108,4 @@ foreach ($event in $sounds.PSObject.Properties) {
 }
 Get-ChildItem -LiteralPath (Join-Path $projectRoot 'src\main\resources') -Filter '*.json' -Recurse |
     ForEach-Object { Get-Content -LiteralPath $_.FullName -Raw -Encoding UTF8 | ConvertFrom-Json | Out-Null }
-Write-Host 'OK: JSONs, traduções, legendas, OGGs e skin 64 x 64 preservada.'
+Write-Host 'OK: JSONs, traduções, legendas, OGGs, skins e 10 quadros preservados.'

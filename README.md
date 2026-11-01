@@ -6,7 +6,7 @@
 
 **Seis facções · Personagens com IA · Exércitos invocáveis · Multiplayer**
 
-![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.014.3-DBA434?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.018.1-DBA434?style=for-the-badge)
 ![GeckoLib](https://img.shields.io/badge/GeckoLib-4.8.4-58A64B?style=for-the-badge)
 ![TaCZ](https://img.shields.io/badge/TaCZ-1.1.8--hotfix2-397BA8?style=for-the-badge)
 ![Plataforma](https://img.shields.io/badge/PLATAFORMA-MINECRAFT_JAVA-62B447?style=for-the-badge)
@@ -25,7 +25,13 @@ Este README reúne o design do jogo, as tecnologias propostas, a arquitetura pre
 
 🤖 **[Manual completo para IAs colaboradoras — SKILL.md](guia-de-prompts/guerra-ezuberante/SKILL.md)** — um único arquivo para seus amigos anexarem às IAs deles, com regras de negócio, arquitetura, testes, criação de skins, áudio, vilas e contribuição.
 
-> **Estado atual — 0.014.3.** A vila da **Missão** agora toca a música de batalha do Renan em loop enquanto o jogador permanece na área. A faixa usa o controle de volume **Música**, interrompe somente a trilha vanilla e preserva músicas de outros mods. O canal de facções usa o protocolo **4**, portanto cliente e servidor precisam estar atualizados juntos. Progressão, perfil **J**, cinco atributos, doze poderes, vozes do Jair, vilas com castelos e as correções da 0.014.2 continuam preservados. **B** usa o poder selecionado; **K** abre o painel. [Música da vila](docs/MUSICA_VILA_0.014.3.md) · [Correções e testes 0.014.2](docs/CORRECOES_0.014.2.md) · [Integração](docs/INTEGRACAO_0.014.1.md) · [Vilas](docs/VILAS_0.014.md).
+> **Estado atual — 0.018.1.** Dez quadros satíricos fornecidos pelo autor agora podem ser colocados com o item vanilla. A integração 0.018.0 também acrescenta Jones Manoel, Tabata Amaral, Marina Silva, Ciro Gomes e moradores comunistas; a 0.017.0 acrescenta classes, árvore de habilidades e barra moral. **B** usa o poder selecionado; **J** alterna perfil/árvore; **K** abre o painel. [Quadros](docs/QUADROS_0.018.1.md) · [Contexto técnico](CONTEXTO.md) · [Validação](docs/VALIDACAO.md).
+
+## Quadros satíricos — 0.018.1
+
+O quadro vanilla pode selecionar dez novas artes do mod, em formatos de 2 × 2 até 4 × 4 blocos. As imagens originais foram preservadas, e as texturas mantêm a proporção sem cortar texto ou rostos. IDs, tamanhos, preparação e limites estão em [docs/QUADROS_0.018.1.md](docs/QUADROS_0.018.1.md).
+
+Validação da 0.018.1: **179/179 GameTests com TaCZ**, **115/115 sem TaCZ** e build/check/reobf aprovados. JAR SHA-256 `4a6073ebd4bfdc5588288a9a735ff7fbf0437b5cb6bea992537dc0e418adbac7`.
 
 ## Música da vila da Missão — 0.014.3
 

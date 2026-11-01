@@ -7,6 +7,7 @@ import io.github.omarflk.guerraezuberante.config.ModConfig;
 import io.github.omarflk.guerraezuberante.registry.ModCreativeTabs;
 import io.github.omarflk.guerraezuberante.registry.ModEntities;
 import io.github.omarflk.guerraezuberante.registry.ModItems;
+import io.github.omarflk.guerraezuberante.registry.ModPaintings;
 import io.github.omarflk.guerraezuberante.registry.ModSounds;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +28,7 @@ public final class GuerraEzuberanteMod {
         ModItems.REGISTER.register(bus);
         ModCreativeTabs.REGISTER.register(bus);
         ModSounds.REGISTER.register(bus);
+        ModPaintings.register(bus);
         io.github.omarflk.guerraezuberante.registry.ModVillagers.TYPES.register(bus);
         io.github.omarflk.guerraezuberante.registry.ModWorldgen.register(bus);
         io.github.omarflk.guerraezuberante.registry.ModEffects.REGISTER.register(bus);

@@ -1,5 +1,13 @@
 # Contexto de trabalho — Guerra Ezuberante
 
+## Quadros satíricos — 0.018.1 (31/10/2026)
+
+- Dez imagens anexadas pelo autor foram recuperadas pelos bytes originais e preservadas em `assets-entrada/quadros/`.
+- `ModPaintings` registra dez `PaintingVariant`; `data/minecraft/tags/painting_variant/placeable.json` permite colocá-las com o quadro vanilla.
+- `tools/prepare_paintings.ps1` gera texturas proporcionais de alta resolução sem recorte. `validate_assets.ps1` verifica fontes, PNGs, dimensões e tag. `PaintingGameTests` verifica os dez registros no servidor.
+- IDs, tamanhos e procedimento: `docs/QUADROS_0.018.1.md`.
+- Validação final: build/check/reobf aprovado, **179/179 GameTests com TaCZ** e **115/115 sem TaCZ** em mundos limpos. JAR `guerra_ezuberante-0.018.1.jar`, SHA-256 `4a6073ebd4bfdc5588288a9a735ff7fbf0437b5cb6bea992537dc0e418adbac7`.
+
 ## Personagens da Esquerda Independente — 0.018.0 (30/10/2026)
 
 - Pedido do colaborador, ainda na branch `feat/classes` e antes do commit da 0.017: personagens da Esquerda Independente, com **Jones Manoel (líder)**, Tabata Amaral, Marina Silva e Ciro Gomes; petista (4), cachorro comunista, venom comunista e Ednaldo comunista como moradores da vila. Skins em Downloads. Poderes propostos pelo agente a partir de polêmicas públicas e aprovados ("gostei, pode mandar ver"). Perguntas sem resposta seguiram a proposta: Jones é chefão como Lula e Jair, sem áudio por enquanto, buraco da mão da Tabata preenchido.

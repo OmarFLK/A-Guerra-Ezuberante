@@ -1,4 +1,13 @@
-# Validação — 0.014.3
+# Validação — 0.018.1
+
+- Integração 0.018.0: o ajuste de conversão tardia dos moradores Lulistas foi incluído e preservado na nova bateria.
+- Quadros 0.018.1: dez fontes recuperadas sem alteração, dez PNGs proporcionais conferidos, registro Forge compilado e teste dedicado aprovado.
+- **179/179 GameTests com TaCZ** e **115/115 sem TaCZ** aprovados em mundos limpos. Build/check/reobf aprovado.
+- Cliente normal silencioso iniciado em 31/10/2026; carregamento do atlas `minecraft:textures/atlas/paintings.png-atlas` confirmado sem textura ausente.
+- JAR `build/libs/guerra_ezuberante-0.018.1.jar`, SHA-256 `4a6073ebd4bfdc5588288a9a735ff7fbf0437b5cb6bea992537dc0e418adbac7`.
+- [Quadros, tamanhos e preparação](QUADROS_0.018.1.md) · [Contexto da integração](../CONTEXTO.md).
+
+## Histórico — 0.014.3
 
 - **130 GameTests com TaCZ e 66 sem TaCZ aprovados.** As quatro regressões novas cobrem detecção por estrutura real, margem de saída, ausência de faixa em outras facções, morte/espectador/dimensão, independência entre jogadores e logout.
 - **Build/check/reobf aprovados**, incluindo validadores de assets, GeckoLib, TaCZ, personagens e menu.
