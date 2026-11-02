@@ -6,7 +6,7 @@
 
 **Seis facções · Personagens com IA · Exércitos invocáveis · Multiplayer**
 
-![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.018.1-DBA434?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.022.2-DBA434?style=for-the-badge)
 ![GeckoLib](https://img.shields.io/badge/GeckoLib-4.8.4-58A64B?style=for-the-badge)
 ![TaCZ](https://img.shields.io/badge/TaCZ-1.1.8--hotfix2-397BA8?style=for-the-badge)
 ![Plataforma](https://img.shields.io/badge/PLATAFORMA-MINECRAFT_JAVA-62B447?style=for-the-badge)
@@ -25,7 +25,24 @@ Este README reúne o design do jogo, as tecnologias propostas, a arquitetura pre
 
 🤖 **[Manual completo para IAs colaboradoras — SKILL.md](guia-de-prompts/guerra-ezuberante/SKILL.md)** — um único arquivo para seus amigos anexarem às IAs deles, com regras de negócio, arquitetura, testes, criação de skins, áudio, vilas e contribuição.
 
-> **Estado atual — 0.018.1.** Dez quadros satíricos fornecidos pelo autor agora podem ser colocados com o item vanilla. A integração 0.018.0 também acrescenta Jones Manoel, Tabata Amaral, Marina Silva, Ciro Gomes e moradores comunistas; a 0.017.0 acrescenta classes, árvore de habilidades e barra moral. **B** usa o poder selecionado; **J** alterna perfil/árvore; **K** abre o painel. [Quadros](docs/QUADROS_0.018.1.md) · [Contexto técnico](CONTEXTO.md) · [Validação](docs/VALIDACAO.md).
+> **Estado atual — 0.022.2.** Integra Gabriel até a refatoração das cinco skins da 0.022.1, preserva os dez quadros e corrige proteção de explosões, combate durante Paris, efeitos de dano cancelado e persistência de folhas temporárias. **B** usa o poder selecionado; **J** alterna perfil/árvore; **K** abre o painel. Cliente e servidor devem usar a mesma versão (canal de facção **7**). [Integração](docs/INTEGRACAO_0.022.2.md) · [O que falta para a beta 0.1](docs/BETA_0.1_CHECKLIST.md) · [Validação](docs/VALIDACAO.md).
+
+## Integração 0.019–0.022.2
+
+| Área | Conteúdo atual |
+| --- | --- |
+| Esquerda Independente | Árvore com 10 poderes de Jones, Tabata, Marina e Ciro, controle de área, fugas e invocações |
+| Lulistas | 8 poderes, incluindo Mandiocas, Estocar vento, Tapas e Ocupação |
+| Direita Independente | Enéias, Augusto Cury, Zema e Caiado; árvore com 13 poderes, drones, eletrodomésticos, Laço e Boiada |
+| Chefes | Renan passa a 300 HP com barra amarela; Enéias tem barra azul e bomba atômica com contagem de 15 s abaixo de 25% da vida |
+| Vilas | Guardas armados nas torres; moradores bolsonaristas e direitistas, além dos petistas/comunistas; novas estruturas exigem chunks novos |
+| Progressão e visual | Nível máximo padrão 100, migração de compras das árvores, poses de jogador/NPC e cinco skins refeitas |
+
+Missão, Bolsonaristas e Centro continuam com três poderes cada. A bomba do Enéias tem raio padrão de dano 300 e cratera 80, configuráveis; isso exige avaliação de desempenho em mundos de teste antes de uma beta pública. Há cancelamento inicial e filtragem Forge de entidades e de cada lote de blocos. O servidor continua responsável por dano e escavação.
+
+A integração, seus testes e os limites de validação estão em [INTEGRACAO_0.022.2.md](docs/INTEGRACAO_0.022.2.md). As seções de versões anteriores abaixo preservam o histórico; a versão 0.1 ainda não foi declarada pronta.
+
+Validação da integração: **219/219 GameTests com TaCZ, 155/155 sem TaCZ**, build/check/reobf e 21 capturas de skins no cliente real aprovados. A homologação de multiplayer e da bomba no tamanho padrão continua pendente para lançamento da beta.
 
 ## Quadros satíricos — 0.018.1
 

@@ -5,6 +5,8 @@ description: Implementar, corrigir, revisar e testar o mod Minecraft Java Guerra
 
 # Guerra Ezuberante — manual completo para IAs colaboradoras
 
+> **Atualização de integração — 0.022.2 (02/11/2026):** a fotografia extensa abaixo permanece como referência histórica da 0.014.3. Antes de implementar, leia [CONTEXTO.md](../../CONTEXTO.md) e [a integração atual](../../docs/INTEGRACAO_0.022.2.md); não use as antigas tabelas de atributos, poderes ou configurações como catálogo completo da versão atual. Há cinco classes, árvore de habilidades, moral e nível máximo padrão 100; árvores de Esquerda/Lulistas/Direita com 10/8/13 poderes, canal de facção 7, novos NPCs, drones, guardas e skins. Renan é chefe de 300 HP. `CombatSafety` condiciona efeitos de golpes ao dano efetivo e impede dano do jogador/tropas durante Paris; `TemporaryBlocks` usa SavedData por dimensão; `AtomicBlast` publica cancelamento e filtragem Forge em lotes. Para GameTests isolados, use `-PgameTestWorkDir=<pasta>` e mundos limpos distintos com/sem TaCZ. Veja [o corte ainda pendente da beta](../../docs/BETA_0.1_CHECKLIST.md).
+
 **Referência:** versão 0.014.3, em 30/10/2026. **Projeto:** [OmarFLK/A-Guerra-Ezuberante](https://github.com/OmarFLK/A-Guerra-Ezuberante). **Nome:** Guerra **Ezuberante**, com **z**. **Namespace:** `guerra_ezuberante`. **Pacote Java:** `io.github.omarflk.guerraezuberante`.
 
 Este arquivo reúne instruções de contribuição e uma fotografia das regras implementadas. Pode ser enviado inteiro como anexo a outra IA. Não depende de ela conhecer esta conversa, ter plugins específicos ou possuir os arquivos pessoais do autor. As referências relativas funcionam dentro do repositório; fora dele, procure os mesmos caminhos no clone.

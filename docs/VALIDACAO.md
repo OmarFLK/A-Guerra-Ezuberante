@@ -1,4 +1,12 @@
-# Validação — 0.018.1
+# Validação — 0.022.2
+
+- **219/219 GameTests com TaCZ** e **155/155 sem TaCZ**, em mundos limpos e separados; build/check/reobf e validadores aprovados.
+- Cinco regressões novas: cancelamento preserva efeitos/movimento; Paris impede Investida/dano; Start da bomba cancelado; vítimas/blocos filtrados em Detonate; persistência da dívida de limpeza de folhas descarregadas.
+- Cliente real isolado: **21 capturas** das skins, silêncio registrado antes do áudio, relatório sem erros. [Relatório de skins](validacao/integracao-0.022.2/skins.json) · [Resumo dos testes](validacao/integracao-0.022.2/testes.json).
+- Cliente normal aberto com a versão atualizada e `-PsilentClient`, menu confirmado e processo respondendo. Sem uso de mundos do autor como fixture.
+- [Integração, correções e limites](INTEGRACAO_0.022.2.md) · [Pendências da beta 0.1](BETA_0.1_CHECKLIST.md). Multiplayer real da integração e bomba no tamanho padrão não foram homologados nesta entrega.
+
+## Histórico — 0.018.1
 
 - Integração 0.018.0: o ajuste de conversão tardia dos moradores Lulistas foi incluído e preservado na nova bateria.
 - Quadros 0.018.1: dez fontes recuperadas sem alteração, dez PNGs proporcionais conferidos, registro Forge compilado e teste dedicado aprovado.

@@ -75,14 +75,16 @@ public final class LulaGameTests {
             System.out.println("LULA_CADENCE "+times+" targetHP="+c.getHealth());e.discard();c.discard();h.succeed();
         });
     }
-    @GameTest(template="empty",timeoutTicks=140) public static void beanDamageWallAndLifetime(GameTestHelper h){
-        var p=arena(h,24);var e=lula(h,p);e.setNoAi(true);var c=cow(h,p.add(0,0,5));
+    @GameTest(template="empty",batch="lula_projectile_wall",timeoutTicks=140) public static void beanDamageWallAndLifetime(GameTestHelper h){
+        // Keep the wall/target independent of neighbouring ranged-combat fixtures and underground terrain.
+        var p=arena(h,220);var e=lula(h,p);e.setNoAi(true);var c=cow(h,p.add(0,0,5));
         var bean=new BeanProjectile(h.getLevel(),e);bean.setPos(p.add(0,.6,1));bean.setNoGravity(true);bean.setDeltaMovement(0,0,1);h.getLevel().addFreshEntity(bean);
         h.runAfterDelay(10,()->{
             h.assertTrue(c.getHealth()==1018 && bean.isRemoved(),"Impact must cause exactly 6 damage once: "+c.getHealth());
             var wall=BlockPos.containing(p.add(0,0,3));for(int y=0;y<3;y++)h.getLevel().setBlockAndUpdate(wall.above(y),Blocks.STONE.defaultBlockState());
             var blocked=new BeanProjectile(h.getLevel(),e);blocked.setPos(p.add(0,.6,1));blocked.setNoGravity(true);blocked.setDeltaMovement(0,0,1);h.getLevel().addFreshEntity(blocked);
-            h.runAfterDelay(10,()->h.assertTrue(blocked.isRemoved() && c.getHealth()==1018,"Projectile crossed wall"));
+            h.runAfterDelay(10,()->h.assertTrue(blocked.isRemoved() && c.getHealth()==1018,
+                    "Projectile wall check: removed="+blocked.isRemoved()+" health="+c.getHealth()+" wall="+h.getLevel().getBlockState(wall)));
         });
         var timed=new BeanProjectile(h.getLevel(),e);timed.setPos(p.add(2,3,0));timed.setNoGravity(true);timed.setDeltaMovement(Vec3.ZERO);h.getLevel().addFreshEntity(timed);
         h.runAfterDelay(105,()->{h.assertTrue(timed.isRemoved(),"Bean lifetime exceeded 100 ticks");e.discard();c.discard();h.succeed();});

@@ -1,0 +1,32 @@
+{
+    "version":  "0.022.2",
+    "date":  "2026-11-02",
+    "contributorCommits":  [
+                               "90bc4f2",
+                               "14c0b35"
+                           ],
+    "withTacz":  {
+                     "passed":  219,
+                     "log":  ".tools/integration-0222-approved.log",
+                     "failed":  0,
+                     "required":  219
+                 },
+    "withoutTacz":  {
+                        "passed":  155,
+                        "log":  ".tools/integration-0222-no-tacz.log",
+                        "failed":  0,
+                        "required":  155
+                    },
+    "skins":  {
+                  "captures":  21,
+                  "silentClient":  true,
+                  "report":  "skins.json",
+                  "passed":  true
+              },
+    "pending":  [
+                    "multiplayer real da integracao",
+                    "bomba no raio padrao em mundo normal",
+                    "balanceamento de beta",
+                    "release publico instalavel"
+                ]
+}

@@ -26,7 +26,8 @@ public final class Petistas {
     /**
      * Runs from the village's afterPlace, once per chunk. In normal generation the house villagers are still saved
      * entity data of the chunk being generated, so only their villager type is changed; when a structure is placed
-     * into a loaded world (/place, GameTests) they are already real entities.
+     * into a loaded world (/place, GameTests) they are already real entities, searched in the whole village: a house on a
+     * chunk border can drop its villager into a chunk that was already handled.
      */
     static void convertVillagers(WorldGenLevel level, BoundingBox chunkBox, ChunkPos chunk,
                                  BoundingBox villageBox, VillagerType villagerType) {

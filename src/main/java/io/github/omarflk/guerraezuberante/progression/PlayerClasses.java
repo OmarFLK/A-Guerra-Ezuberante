@@ -206,6 +206,7 @@ public final class PlayerClasses {
     public static boolean useSkill(ServerPlayer player) {
         var value = of(player);
         if (value.isEmpty() || !player.isAlive() || player.isSpectator()
+                || io.github.omarflk.guerraezuberante.faction.EsquerdaPowers.inParis(player)
                 || !player.isShiftKeyDown() || !player.getMainHandItem().isEmpty()) {
             return false;
         }
@@ -251,7 +252,9 @@ public final class PlayerClasses {
     public static void tickCharge(ServerPlayer player) {
         Integer left = CHARGING.get(player.getUUID());
         if (left == null) { return; }
-        if (!player.isAlive() || left <= 0) { CHARGING.remove(player.getUUID()); return; }
+        if (!player.isAlive() || left <= 0 || io.github.omarflk.guerraezuberante.faction.EsquerdaPowers.inParis(player)) {
+            CHARGING.remove(player.getUUID()); return;
+        }
         player.fallDistance = 0;
         var hit = player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(.8),
                 victim -> PowerTargets.enemy(player, victim)).stream().findFirst();

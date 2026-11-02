@@ -80,6 +80,21 @@ minecraft {
                 property 'guerra.esquerdaTest', 'true'
                 mods { "${mod_id}" { source sourceSets.gameTest } }
             }
+            if (project.hasProperty('direitaTest')) {
+                args '--width', '1280', '--height', '720'
+                property 'guerra.direitaTest', 'true'
+                mods { "${mod_id}" { source sourceSets.gameTest } }
+            }
+            if (project.hasProperty('skinsTest')) {
+                args '--width', '1280', '--height', '720'
+                property 'guerra.skinsTest', 'true'
+                mods { "${mod_id}" { source sourceSets.gameTest } }
+            }
+            if (project.hasProperty('esquerdaPowersTest')) {
+                args '--width', '1280', '--height', '720'
+                property 'guerra.esquerdaPowersTest', 'true'
+                mods { "${mod_id}" { source sourceSets.gameTest } }
+            }
             if (project.hasProperty('classTest')) {
                 args '--width', '1280', '--height', '720'
                 property 'guerra.classTest', 'true'
@@ -135,7 +150,7 @@ minecraft {
             }
         }
         gameTestServer {
-            workingDirectory project.file('run-gametest')
+            workingDirectory project.file(providers.gradleProperty('gameTestWorkDir').getOrElse('run-gametest'))
             property 'forge.enabledGameTestNamespaces', mod_id
             mods {
                 "${mod_id}" {

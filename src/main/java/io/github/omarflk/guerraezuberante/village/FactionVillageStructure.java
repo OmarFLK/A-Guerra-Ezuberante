@@ -63,6 +63,7 @@ public final class FactionVillageStructure extends Structure {
             case BOLSONARISTA -> ModEntities.JAIR_BOLSONARO;
             case MISSAO -> ModEntities.RENAN_SANTOS;
             case ESQUERDA -> ModEntities.JONES_MANOEL;
+            case DIREITA -> ModEntities.ENEIAS;
             default -> null;
         };
         return Optional.ofNullable(type).map(Supplier::get);
@@ -75,6 +76,7 @@ public final class FactionVillageStructure extends Structure {
             case BOLSONARISTA -> List.of(ModEntities.FLAVIO_BOLSONARO.get());
             case MISSAO -> List.of(ModEntities.ARTHUR_INVOCADOR.get());
             case ESQUERDA -> List.of(ModEntities.TABATA_AMARAL.get(), ModEntities.MARINA_SILVA.get(), ModEntities.CIRO_GOMES.get());
+            case DIREITA -> List.of(ModEntities.AUGUSTO_CURY.get(), ModEntities.ROMEU_ZEMA.get(), ModEntities.RONALDO_CAIADO.get());
             default -> List.of();
         };
     }

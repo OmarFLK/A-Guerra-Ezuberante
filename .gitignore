@@ -25,6 +25,8 @@ crash-reports/
 .vscode/
 Thumbs.db
 .DS_Store
+__pycache__/
+*.pyc
 
 # Preserve original recordings locally; package only converted game resources
 audios/

@@ -36,7 +36,7 @@ public final class PistolLogic {
                 && isPistol(player.getMainHandItem());
     }
     public static boolean shoot(ServerPlayer player) {
-        if (!usable(player)) return false;
+        if (!usable(player) || io.github.omarflk.guerraezuberante.faction.EsquerdaPowers.inParis(player)) return false;
         ItemStack stack = player.getMainHandItem();
         if (isReloading(stack) || player.getCooldowns().isOnCooldown(stack.getItem())) return false;
         // Rate limit empty clicks too. Packet spam cannot bypass a server cooldown.
