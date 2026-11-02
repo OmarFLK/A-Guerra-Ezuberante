@@ -56,7 +56,15 @@ foreach ($skin in @(
     if ([BitConverter]::ToInt32($widthBytes, 0) -ne 64 -or [BitConverter]::ToInt32($heightBytes, 0) -ne 64) {
         throw "A skin deve ter 64 x 64 pixels: $skinPath"
     }
-    # petista_2 has no byte-identical source: it is the 64x32 legacy skin converted to 64x64.
+    # 0.022.3 keeps the original sources intact and validates the new native pixel-art source copies instead.
+    $refactoredSource = Join-Path $projectRoot ('assets-entrada\skins\refatoracao-8\' + [IO.Path]::GetFileName($skin.Texture) + '_skin_64x64.png')
+    if (Test-Path -LiteralPath $refactoredSource) {
+        if ((Get-FileHash -LiteralPath $refactoredSource).Hash -ne (Get-FileHash -LiteralPath $skinPath).Hash) {
+            throw "Skin refatorada e recurso diferentes: $skinPath"
+        }
+        continue
+    }
+    # Historical sources for unchanged characters remain byte-identical.
     if (-not $skin.Source) { continue }
     $source = Join-Path $projectRoot ('assets-entrada\skins\' + $skin.Source)
     if ((Test-Path -LiteralPath $source) -and

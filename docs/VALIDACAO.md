@@ -1,4 +1,13 @@
-# Validação — 0.022.2
+# Validação — 0.022.3 (visual)
+
+- 24 PNGs nativos 64×64 RGBA, 36 faces completas, alfa binário, transparência fora do UV e hashes de fontes/recursos conferidos. Rostos principais distintos; originais preservados.
+- Build/check/reobf e **219/219 GameTests com TaCZ** aprovados. Repetição sem TaCZ em mundo limpo: **155/155** aprovados; duas falhas intermitentes de vilas na rodada anterior foram registradas, sem mudança de gameplay para obter o resultado.
+- Modelos/animações, registros/IDs e código de entidades/configuração/geração sem mudanças, conferidos contra a base.
+- [Galeria, método, skills e evidências](arte/refatoracao-skins-8-personagens/README.md).
+- Cliente gráfico final: **97 capturas**, oito ovos e 24 vínculos/hashes de renderer aprovados depois do último ajuste de cabelos. [Resultado](arte/refatoracao-skins-8-personagens/jogo/resultado.json).
+- JAR final com os 24 hashes de PNG corretos e sem arte/QA/TaCZ empacotados. Cliente normal 0.022.3 aberto e silencioso após fechamento com salvamento completo do cliente anterior.
+
+## Histórico — 0.022.2
 
 - **219/219 GameTests com TaCZ** e **155/155 sem TaCZ**, em mundos limpos e separados; build/check/reobf e validadores aprovados.
 - Cinco regressões novas: cancelamento preserva efeitos/movimento; Paris impede Investida/dano; Start da bomba cancelado; vítimas/blocos filtrados em Detonate; persistência da dívida de limpeza de folhas descarregadas.

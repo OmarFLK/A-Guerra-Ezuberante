@@ -6,7 +6,7 @@
 
 **Seis facções · Personagens com IA · Exércitos invocáveis · Multiplayer**
 
-![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.022.2-DBA434?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.022.3-DBA434?style=for-the-badge)
 ![GeckoLib](https://img.shields.io/badge/GeckoLib-4.8.4-58A64B?style=for-the-badge)
 ![TaCZ](https://img.shields.io/badge/TaCZ-1.1.8--hotfix2-397BA8?style=for-the-badge)
 ![Plataforma](https://img.shields.io/badge/PLATAFORMA-MINECRAFT_JAVA-62B447?style=for-the-badge)
@@ -25,7 +25,7 @@ Este README reúne o design do jogo, as tecnologias propostas, a arquitetura pre
 
 🤖 **[Manual completo para IAs colaboradoras — SKILL.md](guia-de-prompts/guerra-ezuberante/SKILL.md)** — um único arquivo para seus amigos anexarem às IAs deles, com regras de negócio, arquitetura, testes, criação de skins, áudio, vilas e contribuição.
 
-> **Estado atual — 0.022.2.** Integra Gabriel até a refatoração das cinco skins da 0.022.1, preserva os dez quadros e corrige proteção de explosões, combate durante Paris, efeitos de dano cancelado e persistência de folhas temporárias. **B** usa o poder selecionado; **J** alterna perfil/árvore; **K** abre o painel. Cliente e servidor devem usar a mesma versão (canal de facção **7**). [Integração](docs/INTEGRACAO_0.022.2.md) · [O que falta para a beta 0.1](docs/BETA_0.1_CHECKLIST.md) · [Validação](docs/VALIDACAO.md).
+> **Estado atual — 0.022.3 (visual).** Refatoradas as skins dos oito ovos solicitados: Comunista, Bolsonarista, Direitista, Ciro Gomes, Enéas Carneiro, Romeu Zema, Petista e Guilherme Boulos. São 24 texturas ao contar variantes por profissão, com originais, UVs e comparações preservados. Gameplay, modelos, animações, IDs e profissões mantidos. [Galeria e relatório](docs/arte/refatoracao-skins-8-personagens/README.md).
 
 ## Integração 0.019–0.022.2
 

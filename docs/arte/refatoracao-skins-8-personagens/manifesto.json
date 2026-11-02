@@ -1,0 +1,218 @@
+[
+  {
+    "key": "comunista_0",
+    "group": "comunista",
+    "index": 0,
+    "title": "Comunista · 0",
+    "texture": "comunista/comunista_0.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "d5229918cc78f71a26af1905af93e1efbdceaecbdae88c4437d9b1f7e76fedd0"
+  },
+  {
+    "key": "comunista_1",
+    "group": "comunista",
+    "index": 1,
+    "title": "Comunista · 1",
+    "texture": "comunista/comunista_1.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "1fb4eae0b087df26b1e962a132dc846444c1845190675acec4dd6201fe8e0ec5"
+  },
+  {
+    "key": "comunista_2",
+    "group": "comunista",
+    "index": 2,
+    "title": "Comunista · 2",
+    "texture": "comunista/comunista_2.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "a158589db04ffc177db36636878bdaa951c978941615fb8117194963149ba36e"
+  },
+  {
+    "key": "comunista_3",
+    "group": "comunista",
+    "index": 3,
+    "title": "Comunista · 3",
+    "texture": "comunista/comunista_3.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "85cf3b80d76078f3d3c01dae19b3ea44ae8fdbaf7a2b91a82824a31573e97faf"
+  },
+  {
+    "key": "bolsonarista_0",
+    "group": "bolsonarista",
+    "index": 0,
+    "title": "Bolsonarista · 0",
+    "texture": "bolsonarista/bolsonarista_0.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "6cadade1c02007100efbf47b9104ea27a2c85368b37c13ad46dc5b699848deb7"
+  },
+  {
+    "key": "bolsonarista_1",
+    "group": "bolsonarista",
+    "index": 1,
+    "title": "Bolsonarista · 1",
+    "texture": "bolsonarista/bolsonarista_1.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "67ee0f7936e79c68db1b0021eb1d0cd9424325e414e7f09eaa5389ba7ccf7795"
+  },
+  {
+    "key": "bolsonarista_2",
+    "group": "bolsonarista",
+    "index": 2,
+    "title": "Bolsonarista · 2",
+    "texture": "bolsonarista/bolsonarista_2.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "889e9201e49d156c4671f5386689e8b6d6620b51dce82a40e83b7c6e5d2e8201"
+  },
+  {
+    "key": "bolsonarista_3",
+    "group": "bolsonarista",
+    "index": 3,
+    "title": "Bolsonarista · 3",
+    "texture": "bolsonarista/bolsonarista_3.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "ef92599fcd9ca443b53a241a94ec0e708144d4521f24e6b2ee3ed5c6cdec6144"
+  },
+  {
+    "key": "bolsonarista_4",
+    "group": "bolsonarista",
+    "index": 4,
+    "title": "Bolsonarista · 4",
+    "texture": "bolsonarista/bolsonarista_4.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "a5d609a1834f44d783181674d13de9b1b0369c162760c813020a92793f3ab593"
+  },
+  {
+    "key": "direitista_0",
+    "group": "direitista",
+    "index": 0,
+    "title": "Direitista · 0",
+    "texture": "direitista/direitista_0.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "dbd01282130a2001c03363b7e1e5b17bba96bbdecfff55a6250e152408794098"
+  },
+  {
+    "key": "direitista_1",
+    "group": "direitista",
+    "index": 1,
+    "title": "Direitista · 1",
+    "texture": "direitista/direitista_1.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "f9d6d95eb8c1d31975c5caaf84f6c8607400b44f6e007c4877313db7ccd2b5fa"
+  },
+  {
+    "key": "direitista_2",
+    "group": "direitista",
+    "index": 2,
+    "title": "Direitista · 2",
+    "texture": "direitista/direitista_2.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "d17231b638f19482a28ea0b4280ae6222850ff5363cc5d627f1d1922bc819fd1"
+  },
+  {
+    "key": "direitista_3",
+    "group": "direitista",
+    "index": 3,
+    "title": "Direitista · 3",
+    "texture": "direitista/direitista_3.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "3cd6fc528cc80c5b4368bd1269ad3d590a06284bff13faa60c35f64b01f57456"
+  },
+  {
+    "key": "direitista_4",
+    "group": "direitista",
+    "index": 4,
+    "title": "Direitista · 4",
+    "texture": "direitista/direitista_4.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "6b0cea5c7611b3cf474d8a0dab2e771066099d43f4fd0c2dd59215b5f584fbf2"
+  },
+  {
+    "key": "petista_0",
+    "group": "petista",
+    "index": 0,
+    "title": "Petista · 0",
+    "texture": "petista/petista_0.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "1475303c32b06d4116f9863dc29ec5c00fe3e0e6cf8933d75a712a0a2be6189c"
+  },
+  {
+    "key": "petista_1",
+    "group": "petista",
+    "index": 1,
+    "title": "Petista · 1",
+    "texture": "petista/petista_1.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "2335eb8d4c6d0cd30f3e0b289b2af629832e017dc1b48505d58ce946e69a0245"
+  },
+  {
+    "key": "petista_2",
+    "group": "petista",
+    "index": 2,
+    "title": "Petista · 2",
+    "texture": "petista/petista_2.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "e26949f66c2b747e97cf40e3c3bed2e7624713327c02059b97fddfd8f7dab4e8"
+  },
+  {
+    "key": "petista_3",
+    "group": "petista",
+    "index": 3,
+    "title": "Petista · 3",
+    "texture": "petista/petista_3.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "b0694341920431dbc253e7a1a614d68cb06d58457408bddc28c42025ea8631d4"
+  },
+  {
+    "key": "petista_4",
+    "group": "petista",
+    "index": 4,
+    "title": "Petista · 4",
+    "texture": "petista/petista_4.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "4e830ab756440bcc156f921a32c2665071f16dc5211953391c2472abb5d8273d"
+  },
+  {
+    "key": "petista_5",
+    "group": "petista",
+    "index": 5,
+    "title": "Petista · 5",
+    "texture": "petista/petista_5.png",
+    "model": "PlayerModel Steve 4 px",
+    "original_sha256": "f8fae677a3d61084997e2c0f2a7c6cd9caae5eb7d552770934e1df5956be0330"
+  },
+  {
+    "key": "ciro_gomes",
+    "group": "ciro_gomes",
+    "index": 0,
+    "title": "Ciro Gomes",
+    "texture": "ciro_gomes.png",
+    "model": "GeckoLib humanoid.geo.json",
+    "original_sha256": "2c94ca24943ba7e63e27f79bc6ad4be53a5070efdc07963b7846dbfbfee4797b"
+  },
+  {
+    "key": "eneias",
+    "group": "eneias",
+    "index": 0,
+    "title": "Enéas Carneiro",
+    "texture": "eneias.png",
+    "model": "GeckoLib humanoid.geo.json",
+    "original_sha256": "c1f876511ba500a37056174576dfa9caf860abbdf4afcaf6db19d5b47c9e4499"
+  },
+  {
+    "key": "romeu_zema",
+    "group": "romeu_zema",
+    "index": 0,
+    "title": "Romeu Zema",
+    "texture": "romeu_zema.png",
+    "model": "GeckoLib humanoid.geo.json",
+    "original_sha256": "c8b6b219d6e7796fa2337472c4b44da39562ec2d534f94c0dfa632062db54669"
+  },
+  {
+    "key": "guilherme_boulos",
+    "group": "guilherme_boulos",
+    "index": 0,
+    "title": "Guilherme Boulos",
+    "texture": "guilherme_boulos.png",
+    "model": "GeckoLib humanoid.geo.json",
+    "original_sha256": "db9250507fe390c7cb064fc080e4d1862d0b14cf6b6f0bbeb6926f559e1022dd"
+  }
+]

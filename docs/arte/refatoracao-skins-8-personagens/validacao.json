@@ -1,0 +1,541 @@
+{
+  "version": "0.022.3",
+  "textures": [
+    {
+      "key": "comunista_0",
+      "group": "comunista",
+      "index": 0,
+      "title": "Comunista · 0",
+      "texture": "comunista/comunista_0.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 3088,
+      "sha256": "0bd85f263ee09d93a94460f8087ff558a39c5cb111abfda9931a9cda873137a4"
+    },
+    {
+      "key": "comunista_1",
+      "group": "comunista",
+      "index": 1,
+      "title": "Comunista · 1",
+      "texture": "comunista/comunista_1.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1942,
+      "sha256": "a8958e56452c6e47cfb522a1b816f6072ab09e40d1ca653d0a9984d911119168"
+    },
+    {
+      "key": "comunista_2",
+      "group": "comunista",
+      "index": 2,
+      "title": "Comunista · 2",
+      "texture": "comunista/comunista_2.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2009,
+      "sha256": "9cadf8d131d0d0f796369971256c127f4cb8a4d4a901a95f89b60e648d910d34"
+    },
+    {
+      "key": "comunista_3",
+      "group": "comunista",
+      "index": 3,
+      "title": "Comunista · 3",
+      "texture": "comunista/comunista_3.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1632,
+      "sha256": "f3ff51bde35b90aabcaac1992b85ae8d31d1cfd5ffe8a1eb93eec4d1fabb1f5a"
+    },
+    {
+      "key": "bolsonarista_0",
+      "group": "bolsonarista",
+      "index": 0,
+      "title": "Bolsonarista · 0",
+      "texture": "bolsonarista/bolsonarista_0.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1913,
+      "sha256": "ad8f1e382b44567f07344984d84da350016b49b8827e0b9d5f08ccf9a8a2c545"
+    },
+    {
+      "key": "bolsonarista_1",
+      "group": "bolsonarista",
+      "index": 1,
+      "title": "Bolsonarista · 1",
+      "texture": "bolsonarista/bolsonarista_1.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2546,
+      "sha256": "232c83c7dfb877abb46e0fa741cac8dfb0c2a9bbaeb64b88517885fc1c479d75"
+    },
+    {
+      "key": "bolsonarista_2",
+      "group": "bolsonarista",
+      "index": 2,
+      "title": "Bolsonarista · 2",
+      "texture": "bolsonarista/bolsonarista_2.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2109,
+      "sha256": "6cc2d6a5062309a4a60c6257066ceb4f0975ec4c5bd154bac74028fe9b2ee183"
+    },
+    {
+      "key": "bolsonarista_3",
+      "group": "bolsonarista",
+      "index": 3,
+      "title": "Bolsonarista · 3",
+      "texture": "bolsonarista/bolsonarista_3.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1636,
+      "sha256": "72a889ba13efc829180ba7fd4e627d197592769b21c4acfbc16fd4dd87a3e897"
+    },
+    {
+      "key": "bolsonarista_4",
+      "group": "bolsonarista",
+      "index": 4,
+      "title": "Bolsonarista · 4",
+      "texture": "bolsonarista/bolsonarista_4.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1636,
+      "sha256": "a4a497b62170c4206dfb99943d8d3f9d765be029a46d5a42a3f85bf12f0f4c62"
+    },
+    {
+      "key": "direitista_0",
+      "group": "direitista",
+      "index": 0,
+      "title": "Direitista · 0",
+      "texture": "direitista/direitista_0.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1640,
+      "sha256": "650ac7834b349ac8c9b5c08faf755ef9251f39d0c94337048c3bee6843397820"
+    },
+    {
+      "key": "direitista_1",
+      "group": "direitista",
+      "index": 1,
+      "title": "Direitista · 1",
+      "texture": "direitista/direitista_1.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1824,
+      "sha256": "ce96acb42c4050187f3761b3e0a43f23df2c9e1b05be6f469532fc26efb56d66"
+    },
+    {
+      "key": "direitista_2",
+      "group": "direitista",
+      "index": 2,
+      "title": "Direitista · 2",
+      "texture": "direitista/direitista_2.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1632,
+      "sha256": "6bc2031f30bffb188c59d454d1c4fb881bfcd9a263fffef4aa2d87b503383493"
+    },
+    {
+      "key": "direitista_3",
+      "group": "direitista",
+      "index": 3,
+      "title": "Direitista · 3",
+      "texture": "direitista/direitista_3.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1632,
+      "sha256": "396ba74f83ee496121888719b025a5c3abdfb10069c65432dac7fbdcb712d850"
+    },
+    {
+      "key": "direitista_4",
+      "group": "direitista",
+      "index": 4,
+      "title": "Direitista · 4",
+      "texture": "direitista/direitista_4.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1640,
+      "sha256": "e138e1d6496dc8a5829627ab2b6f6d8fb14099269a6db6cbf4b1630d742545c2"
+    },
+    {
+      "key": "petista_0",
+      "group": "petista",
+      "index": 0,
+      "title": "Petista · 0",
+      "texture": "petista/petista_0.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1735,
+      "sha256": "2f2c518e5af365ffe846e64c3b2ffa9f2ebe1834c66a79d6211535bf32a2993e"
+    },
+    {
+      "key": "petista_1",
+      "group": "petista",
+      "index": 1,
+      "title": "Petista · 1",
+      "texture": "petista/petista_1.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1632,
+      "sha256": "3bddd73efdd5d7004cbfd4d5d1471a9972b0e07bad6531ca97238f1ee6502174"
+    },
+    {
+      "key": "petista_2",
+      "group": "petista",
+      "index": 2,
+      "title": "Petista · 2",
+      "texture": "petista/petista_2.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2176,
+      "sha256": "81ac607905310ea386d7f5318ae46f12d81bc3885a6a1f31a7a370eab295432f"
+    },
+    {
+      "key": "petista_3",
+      "group": "petista",
+      "index": 3,
+      "title": "Petista · 3",
+      "texture": "petista/petista_3.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1757,
+      "sha256": "150dec21a2d580e1396e85fb0438bf889e52adf9611e2db9554b67be5a278be9"
+    },
+    {
+      "key": "petista_4",
+      "group": "petista",
+      "index": 4,
+      "title": "Petista · 4",
+      "texture": "petista/petista_4.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2336,
+      "sha256": "b55882015cc52d5b3485bc6a4839d5267e0798aa4efd9624b65b714f604f8afc"
+    },
+    {
+      "key": "petista_5",
+      "group": "petista",
+      "index": 5,
+      "title": "Petista · 5",
+      "texture": "petista/petista_5.png",
+      "model": "PlayerModel Steve 4 px",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2080,
+      "sha256": "70869057ffbb2a9af55f071031904c143b4069141aa480f5f52a084a839776a7"
+    },
+    {
+      "key": "ciro_gomes",
+      "group": "ciro_gomes",
+      "index": 0,
+      "title": "Ciro Gomes",
+      "texture": "ciro_gomes.png",
+      "model": "GeckoLib humanoid.geo.json",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1636,
+      "sha256": "a3655cd75eca4bc78bafa8a6e0b1d25a11caa5b909fa0ab9c2db1e5e10dba449"
+    },
+    {
+      "key": "eneias",
+      "group": "eneias",
+      "index": 0,
+      "title": "Enéas Carneiro",
+      "texture": "eneias.png",
+      "model": "GeckoLib humanoid.geo.json",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 2858,
+      "sha256": "1b1db3e69ebc7415c335b31b2f6e897799c62eefd58c34d5d8b21af6232f1357"
+    },
+    {
+      "key": "romeu_zema",
+      "group": "romeu_zema",
+      "index": 0,
+      "title": "Romeu Zema",
+      "texture": "romeu_zema.png",
+      "model": "GeckoLib humanoid.geo.json",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1632,
+      "sha256": "a3d00e134b3d52896c75dfdb5a89ac405f4bc7b4f770284a17591bc0978271fc"
+    },
+    {
+      "key": "guilherme_boulos",
+      "group": "guilherme_boulos",
+      "index": 0,
+      "title": "Guilherme Boulos",
+      "texture": "guilherme_boulos.png",
+      "model": "GeckoLib humanoid.geo.json",
+      "rgba": true,
+      "dimensions": [
+        64,
+        64
+      ],
+      "uv_faces": 36,
+      "binary_alpha": true,
+      "changed_pixels": 1636,
+      "sha256": "be2df5a184201dcc183d36da4c56b8bdcfb867c8d10219e4357228388d3b0a7a"
+    }
+  ],
+  "faces": {
+    "comunista / bolsonarista": {
+      "different_texels": 61,
+      "mean_channel_delta": 50.05
+    },
+    "comunista / direitista": {
+      "different_texels": 62,
+      "mean_channel_delta": 35.48
+    },
+    "comunista / petista": {
+      "different_texels": 51,
+      "mean_channel_delta": 22.95
+    },
+    "comunista / ciro_gomes": {
+      "different_texels": 62,
+      "mean_channel_delta": 76.02
+    },
+    "comunista / eneias": {
+      "different_texels": 58,
+      "mean_channel_delta": 49.81
+    },
+    "comunista / romeu_zema": {
+      "different_texels": 62,
+      "mean_channel_delta": 67.36
+    },
+    "comunista / guilherme_boulos": {
+      "different_texels": 46,
+      "mean_channel_delta": 34.21
+    },
+    "bolsonarista / direitista": {
+      "different_texels": 58,
+      "mean_channel_delta": 23.4
+    },
+    "bolsonarista / petista": {
+      "different_texels": 62,
+      "mean_channel_delta": 47.76
+    },
+    "bolsonarista / ciro_gomes": {
+      "different_texels": 50,
+      "mean_channel_delta": 28.32
+    },
+    "bolsonarista / eneias": {
+      "different_texels": 62,
+      "mean_channel_delta": 65.76
+    },
+    "bolsonarista / romeu_zema": {
+      "different_texels": 58,
+      "mean_channel_delta": 29.23
+    },
+    "bolsonarista / guilherme_boulos": {
+      "different_texels": 54,
+      "mean_channel_delta": 62.06
+    },
+    "direitista / petista": {
+      "different_texels": 42,
+      "mean_channel_delta": 35.36
+    },
+    "direitista / ciro_gomes": {
+      "different_texels": 58,
+      "mean_channel_delta": 45.49
+    },
+    "direitista / eneias": {
+      "different_texels": 62,
+      "mean_channel_delta": 61.57
+    },
+    "direitista / romeu_zema": {
+      "different_texels": 58,
+      "mean_channel_delta": 41.18
+    },
+    "direitista / guilherme_boulos": {
+      "different_texels": 62,
+      "mean_channel_delta": 56.98
+    },
+    "petista / ciro_gomes": {
+      "different_texels": 62,
+      "mean_channel_delta": 72.01
+    },
+    "petista / eneias": {
+      "different_texels": 52,
+      "mean_channel_delta": 41.43
+    },
+    "petista / romeu_zema": {
+      "different_texels": 62,
+      "mean_channel_delta": 63.66
+    },
+    "petista / guilherme_boulos": {
+      "different_texels": 42,
+      "mean_channel_delta": 25.84
+    },
+    "ciro_gomes / eneias": {
+      "different_texels": 62,
+      "mean_channel_delta": 79.39
+    },
+    "ciro_gomes / romeu_zema": {
+      "different_texels": 35,
+      "mean_channel_delta": 16.44
+    },
+    "ciro_gomes / guilherme_boulos": {
+      "different_texels": 62,
+      "mean_channel_delta": 86.82
+    },
+    "eneias / romeu_zema": {
+      "different_texels": 62,
+      "mean_channel_delta": 71.83
+    },
+    "eneias / guilherme_boulos": {
+      "different_texels": 30,
+      "mean_channel_delta": 26.55
+    },
+    "romeu_zema / guilherme_boulos": {
+      "different_texels": 62,
+      "mean_channel_delta": 78.91
+    }
+  },
+  "preserved": {
+    "src/main/java/io/github/omarflk/guerraezuberante/entity": true,
+    "src/main/java/io/github/omarflk/guerraezuberante/registry": true,
+    "src/main/java/io/github/omarflk/guerraezuberante/village": true,
+    "src/main/java/io/github/omarflk/guerraezuberante/config": true,
+    "src/main/resources/assets/guerra_ezuberante/geo": true,
+    "src/main/resources/assets/guerra_ezuberante/animations": true
+  },
+  "skills_read": [
+    "skill_criar_skins.md",
+    "skill_criar_itens.md"
+  ],
+  "reference_zip_extracted": true,
+  "passed": true
+}

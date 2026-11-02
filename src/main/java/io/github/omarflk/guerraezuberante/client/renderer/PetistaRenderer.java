@@ -39,7 +39,7 @@ public final class PetistaRenderer<T extends Villager> extends HumanoidMobRender
             Map.entry(VillagerProfession.BUTCHER, 3), Map.entry(VillagerProfession.LEATHERWORKER, 3), Map.entry(VillagerProfession.FLETCHER, 3),
             Map.entry(VillagerProfession.MASON, 4), Map.entry(VillagerProfession.NONE, 4),
             Map.entry(VillagerProfession.NITWIT, 5)));
-    /** Petista 4, cachorro comunista, venom comunista and Ednaldo comunista, in that order. */
+    /** Four human communist villagers, visually refactored in 0.022.3; profession indices are unchanged. */
     public static final SkinSet COMUNISTAS = SkinSet.of("comunista", 4, 1, Map.ofEntries(
             Map.entry(VillagerProfession.FARMER, 0), Map.entry(VillagerProfession.SHEPHERD, 0), Map.entry(VillagerProfession.FISHERMAN, 0),
             Map.entry(VillagerProfession.BUTCHER, 0),
@@ -49,7 +49,7 @@ public final class PetistaRenderer<T extends Villager> extends HumanoidMobRender
             Map.entry(VillagerProfession.MASON, 2),
             Map.entry(VillagerProfession.LIBRARIAN, 3), Map.entry(VillagerProfession.CARTOGRAPHER, 3), Map.entry(VillagerProfession.CLERIC, 3)));
 
-    /** Macaco bolsonarista, "bolsonaro ou não", bolsonaro, bolsonaro (1) and the eleitor do Bolsonaro, in that order. */
+    /** Five distinct Brazilian green/yellow supporters; profession indices are unchanged. */
     public static final SkinSet BOLSONARISTAS = SkinSet.of("bolsonarista", 5, 4, Map.ofEntries(
             Map.entry(VillagerProfession.FARMER, 0), Map.entry(VillagerProfession.SHEPHERD, 0), Map.entry(VillagerProfession.FISHERMAN, 0),
             Map.entry(VillagerProfession.LIBRARIAN, 1), Map.entry(VillagerProfession.CARTOGRAPHER, 1), Map.entry(VillagerProfession.CLERIC, 1),
@@ -58,7 +58,7 @@ public final class PetistaRenderer<T extends Villager> extends HumanoidMobRender
             Map.entry(VillagerProfession.MASON, 3),
             Map.entry(VillagerProfession.NONE, 4), Map.entry(VillagerProfession.NITWIT, 4)));
 
-    /** 0.022, generated: terno azul, agroboy, camisa amarela, empresário and mauricinho, in that order. */
+    /** Five blue/neutral Direita villagers; visual refactor preserves each profession index. */
     public static final SkinSet DIREITISTAS = SkinSet.of("direitista", 5, 3, Map.ofEntries(
             Map.entry(VillagerProfession.LIBRARIAN, 0), Map.entry(VillagerProfession.CARTOGRAPHER, 0), Map.entry(VillagerProfession.CLERIC, 0),
             Map.entry(VillagerProfession.FARMER, 1), Map.entry(VillagerProfession.SHEPHERD, 1), Map.entry(VillagerProfession.FISHERMAN, 1),
