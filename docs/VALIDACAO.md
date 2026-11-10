@@ -1,4 +1,11 @@
-# Validação — 0.022.3 (visual)
+# Validação — 0.022.4 (quadros exclusivos)
+
+- Build/check/reobf e validação de assets aprovados; dez artes/fontes preservadas, tag exclusiva com `replace: true`.
+- **159/159 GameTests sem TaCZ aprovados** em mundo isolado. Os cinco testes de quadros verificam registro, seleção real somente do autor, recusa em parede de 1 × 1, migração de NBT sem perder identidade, devolução única do item e preservação de quadro próprio.
+- Logs locais `.tools/paintings-0224-build.log` e `.tools/paintings-0224-tests.log`; [relatório reproduzível](QUADROS_0.022.4.md) e [resumo dos resultados](validacao/quadros-0.022.4/resultado.json).
+- Na preparação da demo v0.1 em 10/11/2026, o build/check/reobf e **223/223 GameTests com TaCZ** também passaram em `.tools/demo-v01-gametest`; log `.tools/demo-v01-validation.log`. A migração não foi aplicada aos mundos do autor como teste automatizado.
+
+## Histórico — 0.022.3 (visual)
 
 - 24 PNGs nativos 64×64 RGBA, 36 faces completas, alfa binário, transparência fora do UV e hashes de fontes/recursos conferidos. Rostos principais distintos; originais preservados.
 - Build/check/reobf e **219/219 GameTests com TaCZ** aprovados. Repetição sem TaCZ em mundo limpo: **155/155** aprovados; duas falhas intermitentes de vilas na rodada anterior foram registradas, sem mudança de gameplay para obter o resultado.

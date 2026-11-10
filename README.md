@@ -6,7 +6,7 @@
 
 **Seis facções · Personagens com IA · Exércitos invocáveis · Multiplayer**
 
-![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.022.3-DBA434?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-PROTOTIPO_0.022.4-DBA434?style=for-the-badge)
 ![GeckoLib](https://img.shields.io/badge/GeckoLib-4.8.4-58A64B?style=for-the-badge)
 ![TaCZ](https://img.shields.io/badge/TaCZ-1.1.8--hotfix2-397BA8?style=for-the-badge)
 ![Plataforma](https://img.shields.io/badge/PLATAFORMA-MINECRAFT_JAVA-62B447?style=for-the-badge)
@@ -25,7 +25,11 @@ Este README reúne o design do jogo, as tecnologias propostas, a arquitetura pre
 
 🤖 **[Manual completo para IAs colaboradoras — SKILL.md](guia-de-prompts/guerra-ezuberante/SKILL.md)** — um único arquivo para seus amigos anexarem às IAs deles, com regras de negócio, arquitetura, testes, criação de skins, áudio, vilas e contribuição.
 
-> **Estado atual — 0.022.3 (visual).** Refatoradas as skins dos oito ovos solicitados: Comunista, Bolsonarista, Direitista, Ciro Gomes, Enéas Carneiro, Romeu Zema, Petista e Guilherme Boulos. São 24 texturas ao contar variantes por profissão, com originais, UVs e comparações preservados. Gameplay, modelos, animações, IDs e profissões mantidos. [Galeria e relatório](docs/arte/refatoracao-skins-8-personagens/README.md).
+> **Estado atual — 0.022.4 (quadros exclusivos).** O item Quadro seleciona somente as dez artes enviadas pelo autor. Quadros vanilla já pendurados são substituídos ao carregar por uma arte do autor que caiba no espaço original; quando não cabe nenhuma, o item é devolvido conforme `doEntityDrops`. [Regras e validação](docs/QUADROS_0.022.4.md).
+
+Para montar e instalar o pacote de demonstração, consulte [Demo v0.1](docs/DEMO_V0.1.md). O nome da demo identifica o pacote; a versão interna atual do JAR é 0.022.4.
+
+Na **0.022.3**, foram refatoradas as skins dos oito ovos solicitados: Comunista, Bolsonarista, Direitista, Ciro Gomes, Enéas Carneiro, Romeu Zema, Petista e Guilherme Boulos. São 24 texturas ao contar variantes por profissão, com originais, UVs e comparações preservados. Gameplay, modelos, animações, IDs e profissões mantidos. [Galeria e relatório](docs/arte/refatoracao-skins-8-personagens/README.md).
 
 ## Integração 0.019–0.022.2
 
@@ -46,7 +50,7 @@ Validação da integração: **219/219 GameTests com TaCZ, 155/155 sem TaCZ**, b
 
 ## Quadros satíricos — 0.018.1
 
-O quadro vanilla pode selecionar dez novas artes do mod, em formatos de 2 × 2 até 4 × 4 blocos. As imagens originais foram preservadas, e as texturas mantêm a proporção sem cortar texto ou rostos. IDs, tamanhos, preparação e limites estão em [docs/QUADROS_0.018.1.md](docs/QUADROS_0.018.1.md).
+O item vanilla **Quadro** utiliza dez artes do mod, em formatos de 2 × 2 até 4 × 4 blocos. Desde a **0.022.4**, essas são as únicas artes disponíveis na colocação normal, substituindo a seleção original do Minecraft. As imagens originais foram preservadas, e as texturas mantêm a proporção sem cortar texto ou rostos. IDs, tamanhos e preparação estão em [docs/QUADROS_0.018.1.md](docs/QUADROS_0.018.1.md); a migração dos quadros antigos está em [docs/QUADROS_0.022.4.md](docs/QUADROS_0.022.4.md).
 
 Validação da 0.018.1: **179/179 GameTests com TaCZ**, **115/115 sem TaCZ** e build/check/reobf aprovados. JAR SHA-256 `4a6073ebd4bfdc5588288a9a735ff7fbf0437b5cb6bea992537dc0e418adbac7`.
 

@@ -1,5 +1,14 @@
 # Contexto de trabalho — Guerra Ezuberante
 
+## Quadros exclusivos do autor — 0.022.4 (02/11/2026)
+
+- Autor pediu retirar todos os quadros originais do Minecraft e manter somente as dez artes enviadas. A tag `minecraft:placeable` de painting variants agora usa `replace: true`, com as mesmas dez artes, IDs, dimensões e fontes, sem alterar as imagens.
+- `decoration/AuthorPaintings` trata entidades vanilla ao entrar no servidor, inclusive NBT salvo. Agenda a migração na thread do servidor, tenta arte própria que caiba sem ampliar a largura/altura original e exige `survives()`. Preserva entidade/UUID/nome/fixação/orientação quando cabe; caso contrário, remove a decoração e devolve o item conforme `doEntityDrops`. Não modifica paredes, não força chunks nem varre saves. Quadros próprios e variantes de outros mods não são migrados.
+- `PaintingGameTests`: cinco cenários cobrem registro, catálogo carregado exclusivo e colocação real, parede pequena sem fallback vanilla, NBT/identidade da migração, devolução única do item e preservação de quadro próprio. **159/159 GameTests sem TaCZ aprovados**, em `.tools/paintings-0224-test`; log `.tools/paintings-0224-tests.log`. Build/check/reobf e validador de assets aprovados; não foi repetida a suíte com TaCZ nesta alteração de decoração.
+- JAR `build/libs/guerra_ezuberante-0.022.4.jar`, SHA-256 `c16533bc74354573257f85edc6858f8deb3351cf735dbda36353ac95cce8f16f` no build de 02/11. [Regras e evidências](docs/QUADROS_0.022.4.md). Em 10/11, o autor solicitou conferir a main atual, sincronizar o GitHub e preparar o pacote identificado como demo v0.1 com o JAR atual e dependências.
+- Validação adicional para a demo em 10/11: **223/223 GameTests com TaCZ**, build/check/reobf e validadores aprovados em `.tools/demo-v01-gametest` (log `.tools/demo-v01-validation.log`). A demo v0.1 é rótulo de distribuição; o JAR e `mods.toml` permanecem 0.022.4. [Guia de instalação](docs/DEMO_V0.1.md).
+- Cliente normal `run/` atualizado aberto com `-PsilentClient`, menu confirmado em 19:07:15 e PID 24264 respondendo; sem modos de QA que encerram automaticamente. Nenhum cliente anterior estava aberto no momento do launch. Log `.tools/paintings-0224-normal-client.log` confirma silêncio antes da reprodução, sem alterar o volume salvo do autor.
+
 ## Refatoração visual de oito personagens — 0.022.3 (02/11/2026)
 
 - Autor solicitou somente arte para os ovos de Comunista, Bolsonarista, Direitista, Ciro Gomes, Enéas, Romeu Zema, Petista e Guilherme Boulos, com rostos próprios, UV Steve 64×64 e padrão das seis skins históricas aprovadas. Trabalho preparado na branch `art/skins-oito-0.022.3`. Em 02/11/2026, o autor autorizou explicitamente commit, integração na `main` e push de toda a entrega 0.022.3, substituindo a restrição inicial de publicação.

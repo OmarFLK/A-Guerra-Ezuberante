@@ -1,5 +1,7 @@
 # Quadros satíricos — 0.018.1
 
+> Histórico da introdução das artes. Desde a [0.022.4](QUADROS_0.022.4.md), a seleção normal contém somente estas dez artes e os quadros vanilla carregados são migrados.
+
 Dez imagens fornecidas pelo autor foram adicionadas como variantes do item vanilla **Quadro**. Elas entram na tag `minecraft:placeable`, portanto não exigem item próprio, comando novo ou mod adicional: coloque um quadro vanilla em uma parede com espaço compatível até aparecer a variante desejada.
 
 | ID | Tamanho no mundo | Fonte |

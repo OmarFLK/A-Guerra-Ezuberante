@@ -113,8 +113,10 @@ foreach ($painting in $paintingSpecs) {
         throw "Quadro fora da tag placeable: $($painting.Id)"
     }
 }
-if (@($paintingTag.values | Where-Object { $_ -like 'guerra_ezuberante:*' }).Count -ne 10) {
-    throw 'A tag placeable deve conter exatamente os dez quadros do mod.'
+if ($paintingTag.replace -ne $true -or @($paintingTag.values).Count -ne 10 -or
+    @($paintingTag.values | Select-Object -Unique).Count -ne 10 -or
+    @($paintingTag.values | Where-Object { $_ -like 'guerra_ezuberante:*' }).Count -ne 10) {
+    throw 'A tag placeable deve substituir o catálogo vanilla e conter somente os dez quadros únicos do autor.'
 }
 $sounds = Get-Content -LiteralPath (Join-Path $assets 'sounds.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 foreach ($event in $sounds.PSObject.Properties) {

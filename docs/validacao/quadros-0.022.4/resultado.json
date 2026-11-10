@@ -1,0 +1,20 @@
+{
+  "version": "0.022.4",
+  "date": "2026-11-02",
+  "build_check_reobf_assets": "passed",
+  "game_tests": {
+    "without_tacz": { "required": 159, "passed": 159, "failed": 0 },
+    "with_tacz": { "required": 223, "passed": 223, "failed": 0, "date": "2026-11-10" },
+    "painting_batch": [
+      "allTenPaintingsAreRegistered",
+      "onlyAuthorPaintingsCanBePlaced",
+      "savedVanillaPaintingBecomesAuthorArtWithoutLosingIdentity",
+      "tinyVanillaPaintingReturnsItemAndLeavesWallUntouched",
+      "existingAuthorPaintingKeepsExactVariant"
+    ]
+  },
+  "isolated_test_directory": ".tools/paintings-0224-test",
+  "logs": [".tools/paintings-0224-build.log", ".tools/paintings-0224-tests.log", ".tools/demo-v01-validation.log"],
+  "jar_sha256": "c16533bc74354573257f85edc6858f8deb3351cf735dbda36353ac95cce8f16f",
+  "author_worlds_used_as_test_fixtures": false
+}
